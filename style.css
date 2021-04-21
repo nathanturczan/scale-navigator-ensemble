@@ -1,0 +1,297 @@
+.grid {
+  display: flex;
+  font-family: arial, sans-serif;
+}
+
+/** { border: 1px solid red; }*/
+
+@font-face {
+  font-family: 'Wild Wolf Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Wild Wolf Regular'), url('Wild Wolf.woff') format('woff');
+}
+
+.close {
+  position: absolute;
+  font-size:x-large;
+  right: 15px;
+  top: 7.5px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  background-color: 255,255,255;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+}
+
+
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  width: 33%;
+  height: 100vh;
+  min-height: 500px;
+
+
+}
+.instrument_area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  width: 67%;
+  height: 100vh;
+  max-height: 100vh;
+
+
+}
+
+#title_container{
+  justify-content: center;
+  text-align: center;
+  font-size: 50px;
+
+}
+
+#logo{
+  font-family:'Wild Wolf Regular';
+  font-weight:normal;
+  text-align: right;
+  font-size:40px;
+  margin-top: -11px;
+  margin-right: 10%;
+  z-index:4;
+}
+
+.scalenav_container{
+  height: 66vh;
+  z-index:2;
+  width:100%;
+
+
+}
+
+#autopilot_container{
+  z-index:3;
+  text-align: center;
+
+
+}
+
+#scale_navigator {
+    
+
+}
+
+#selectbox_container{
+  padding-top:2%;
+  
+
+}
+
+#midi_container {
+
+  padding-top:5%;
+
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+#output_port_selector {
+  width: 400px;
+  height: 50px;
+}
+
+#guitar_container{
+  width: 100%;
+
+  justify-content: center;
+  text-align: center;
+
+}
+
+#graph_container{
+  width: 100%;
+
+
+
+}
+
+.scene-tooltip {
+    color: white;
+    background: black;
+}
+
+
+
+#piano_container{
+  padding-top:5%;
+
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+
+}
+
+#snharp_container{
+  padding-top:5%;
+  
+  text-align: center;
+  width: 100%;
+
+}
+
+#flute_container{
+  width: 100%;
+  padding-top:5%;
+  justify-content: center;
+  text-align: center;
+
+}
+
+#notation_container{
+
+  width: 100%;
+
+
+}
+
+#room-creation-form{
+  padding-right:2%;
+  padding-left:2%;
+  display: flex;
+  align-items: left; 
+  width: 100%;
+}
+
+#room-select-form{
+  padding-right:2%;
+  padding-left:2%;
+  display: flex;
+  align-items: left; 
+  width:100%;
+}
+
+#notation{}
+
+#chordstext_container{
+
+  width: 100%;
+  position: relative;
+  white-space: nowrap;
+  justify-content: center;
+  text-align: center;
+  padding-top: 5%;' 
+
+}
+
+#chordcircle_container{
+
+/*  max-height: 300px;
+  width: 100%;*/
+}
+
+#circle24{
+  padding-top: 5%;
+  width:66%;
+  height:66%; 
+  justify-content: center;
+
+}
+
+.mandolin_container{
+  width:100%;
+
+  justify-content: center;
+  text-align: center;
+
+}
+
+.banjo_container{
+  width:100%;
+
+  justify-content: center;
+  text-align: center;
+
+}
+
+.ukulele_container{
+  width:100%;
+
+  justify-content: center;
+  text-align: center;
+
+}
+
+
+
+select {
+        height:20px;
+}
+
+form {
+
+  width:100%;
+
+}
+
+
+
+@media all and (orientation:portrait){
+  
+  .grid {
+    flex-direction: column;  
+  }
+  
+  .navigation {
+    width: 100vw;
+    height: 33vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding-bottom: 10px;
+
+  }
+
+  #title_container{
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .scalenav_container{
+    justify-content: center;
+    height: 30vh;
+    z-index:2;
+  }
+
+  #autopilot_container{
+    
+    text-align: center;
+    padding-bottom: 1px;
+  }
+  
+  .instrument_area {
+    position: relative;
+    padding-top: 10px;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: auto;
+  }
+  
+}

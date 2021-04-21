@@ -1,0 +1,100 @@
+<head>
+  <style> body { margin: 0; } </style>
+  <script src="//unpkg.com/3d-force-graph"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script language="javascript" type="text/javascript" src="data.js"></script>
+  <script src="../../dist/3d-force-graph.js"></script>
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+  <script src="index.js" type="module" ></script>
+  <div id="chatroom_container">
+    <input type="checkbox" id="host-select" value="false">am host</input>
+    <form id="room-creation-form">
+      <input id="room-name-input" />
+      <button type="submit"  style="flex-grow: 1;">create ensemble</button>
+    </form>
+    <form id="room-select-form">
+      <select id="available-rooms"></select>
+      <button type="submit" style="flex-grow: 1;">join ensemble</button>
+    </form>
+    <p id="send_to_firebase" style="visibility: hidden;"></p>
+    <p id="scale_from_firebase" style="visibility: hidden;"></p>
+  </div>
+  <div id="3d-graph" style="width: 100%; height: 100%;"></div>
+  <script>
+
+
+
+    const elem = document.getElementById('3d-graph');
+
+    let selectedId = null;
+    const highlightNodes = new Set();
+    const highlightLinks = new Set();
+    let hoverNode = null;
+
+    const graph = ForceGraph3D()
+      (elem)
+        .jsonUrl('dataset3d.json')
+        .backgroundColor('#00ff0000')
+        .linkColor("black")
+        .linkOpacity(10)
+        .linkWidth(0.25)
+        .nodeLabel('id')
+        .nodeAutoColorBy('group')
+        .nodeColor(nodeColor);
+        
+
+    function nodeColor(node) {
+      if (`${node.id}` === `${selectedId}`) {
+        // no state change
+        if ((!node && !highlightNodes.size) || (node && hoverNode === node)) return;
+
+        highlightNodes.clear();
+        highlightLinks.clear();
+        if (node) {
+          highlightNodes.add(node);
+          data.scales[node.id].adjacent_scales.forEach(neighbor => highlightNodes.add(neighbor));
+          // node.links.forEach(link => highlightLinks.add(link));
+          //console.log(data.scales[node.id].adjacent_scales);
+        }
+
+        hoverNode = node || null;
+
+        updateHighlight();
+        
+        const distance = 400;
+        const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+
+        graph.cameraPosition(
+          { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+          node, // lookAt ({ x, y, z })
+          8000  // ms transition duration
+        );
+        return "red";
+      }
+      return "black";
+    }
+
+    function updateHighlight() {
+      // trigger update of highlighted objects in scene
+      graph
+        .nodeColor(graph.nodeColor())
+        .linkWidth(graph.linkWidth());
+      }
+
+
+    function selectExternally(id) {
+      console.log({ id });
+      selectedId = id;
+      graph?.refresh();
+    }
+
+    $('body').on('DOMSubtreeModified', '#scale_from_firebase', function() {
+      selectExternally(document.getElementById("scale_from_firebase").textContent);
+    });
+
+
+  </script>
+</body>
