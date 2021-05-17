@@ -14,6 +14,11 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
   <script src="index.js" type="module" ></script>
   <div id="chatroom_container">
+    <input type="checkbox" id="host-select" value="false" style='display:none !important;'></input>
+    <form id="room-creation-form" style='display:none !important;'>
+      <input id="room-name-input" />
+      <button type="submit"  style="flex-grow: 1;">create ensemble</button>
+    </form>
     <form id="room-select-form">
       <select id="available-rooms"></select>
       <button type="submit" style="flex-grow: 1;">join ensemble</button>
