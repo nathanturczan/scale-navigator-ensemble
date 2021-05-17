@@ -14,11 +14,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
   <script src="index.js" type="module" ></script>
   <div id="chatroom_container">
-    <input type="checkbox" id="host-select" value="false">am host</input>
-    <form id="room-creation-form">
-      <input id="room-name-input" />
-      <button type="submit"  style="flex-grow: 1;">create ensemble</button>
-    </form>
     <form id="room-select-form">
       <select id="available-rooms"></select>
       <button type="submit" style="flex-grow: 1;">join ensemble</button>
@@ -27,6 +22,7 @@
     <p id="scale_from_firebase" style="visibility: hidden;"></p>
   </div>
   <div id="3d-graph" style="width: 100%; height: 100%;"></div>
+  <input id="node-selection" placeholder="Node Id" step="1" type="number" oninput="selectExternally(this.value)">
   <script>
     const scale_classes = ['acoustic', 'diatonic','harmonic_major','harmonic_minor','octatonic','whole_tone','hexatonic'];
 
@@ -478,8 +474,28 @@
       'whole_tone_2': "#969696"
   };
 
-    const Graph = ForceGraph3D()
-      (document.getElementById('3d-graph'))
+  // cross-link node objects
+  // gData.links.forEach(link => {
+    
+  //   const a = gData.nodes[link.source];
+  //   const b = gData.nodes[link.target];
+  //   !a.neighbors && (a.neighbors = []);
+  //   !b.neighbors && (b.neighbors = []);
+  //   a.neighbors.push(b);
+  //   b.neighbors.push(a);
+
+  //   !a.links && (a.links = []);
+  //   !b.links && (b.links = []);
+  //   a.links.push(link);
+  //   b.links.push(link);
+  // });
+
+  const highlightNodes = new Set();
+  const highlightLinks = new Set();
+  let hoverNode = null;
+  let selectedId = null;
+
+const graph = ForceGraph3D()(document.getElementById("3d-graph"))
 
       .nodeThreeObject(({ scale_class, root }) => {
         const scale_classTexture = new THREE.TextureLoader().load(`./scale_classes/${scale_class+".svg"}`);
@@ -489,13 +505,68 @@
 
         return sprite;
       })
-      .nodeColor(nodeColor)
-      .graphData(gData);
+      // .nodeVal(selectedLinkSize)
+      // .linkWidth(link => highlightLinks.has(link) ? 4 : 1)
+      .onNodeClick(node => {
+          // Aim at node from outside it
+          const distance = 400;
+          const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
 
-      function nodeColor(node) {
-      if (`${node.id}` === `${selectedId}`) {
-        // no state change
-        
+          graph.cameraPosition(
+            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+            node, // lookAt ({ x, y, z })
+            8000  // ms transition duration
+          );
+        })
+      .nodeLabel('id')
+      .backgroundColor('#00ff0000')
+      .graphData(gData)
+
+      function updateHighlight() {
+        // trigger update of highlighted objects in scene
+        graph.linkWidth(Graph.linkWidth());
+
+      }
+
+      function resizeGraph() {
+        if (graph) {
+          var height = document.getElementById("3d-graph").clientHeight;
+          var width = document.getElementById("3d-graph").clientWidth;
+
+          graph.width(width);
+          graph.height(height);
+          graph.controls().handleResize();
+        }
+      }
+
+      function selectedLinkSize(node) {
+        if (`${node.id}` === `${selectedId}`) {
+          // no state change
+
+            highlightNodes.clear();
+            highlightLinks.clear();
+            if (node) {
+              highlightNodes.add(node);
+              node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
+              node.links.forEach(link => highlightLinks.add(link));
+            }
+            updateHighlight();
+        }
+      }
+
+      function selectExternally(id) {
+        //console.log({ id });
+        selectedId = id;
+        // graph?.refresh();
+
+        focusNode();
+      }
+
+      function focusNode() {
+        let node = gData.nodes.find(d => d.id == selectedId);
+        if (!node) {
+          return;
+        }
         const distance = 400;
         const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
 
@@ -505,19 +576,13 @@
           8000  // ms transition duration
         );
       }
-    }
 
-
-
-    function selectExternally(id) {
-      console.log({ id });
-      selectedId = id;
-      graph?.refresh();
-    }
+    
 
     $('body').on('DOMSubtreeModified', '#scale_from_firebase', function() {
       selectExternally(document.getElementById("scale_from_firebase").textContent);
     });
+
 
   </script>
 </body>

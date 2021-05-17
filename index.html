@@ -4,6 +4,7 @@
       <base href=".">
       <meta charset="UTF-8">
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet"> 
       <link rel="stylesheet" href="./style.css">
       <link rel="stylesheet" href="./guitarstyle.css">
       <link rel="stylesheet" href="./mandolinstyle.css">
@@ -31,25 +32,33 @@
       <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
 
       <script src="index.js" type="module" ></script>
+      <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
       
       <html>
          <div class="grid">
             <div class="navigation">
-               <div id="title_container">
-                  scale navigator
+               <div data-title="Welcome!" data-intro="Scale Navigator Ensemble is a web app for exploring harmony! Use it to:<br/>
+                                  • Compose music<br/>
+                                  • Learn music theory concepts<br/>
+                                  • Stay harmonically synchronized while improvising in ensembles with your friends<br/>
+                                  • Output MIDI to your computer for integration with your Digital Audio Workstation<br/>
+                                  " data-step='1'>
+                  <div id="title_container">
+                     scale navigator
+                  </div>
+                  <div id="logo">ensemble</div>
+                  <p  id="author" align="left" margin-top="-41px">by <a href="https://www.nathanturczan.com/">Nathan Turczan</a></p>
                </div>
-               <div id="logo">ensemble</div>
-               <p align="center">by <a href="https://www.nathanturczan.com/">Nathan Turczan</a></p>
-               <div class="scalenav_container">
+               <div class="scalenav_container" data-title="Scale Navigator interface" data-intro="The current scale you're jamming to is in the middle of the interface, radially surrounded my neighbor scales that differ by only 1 note. Click on a scale shape to select the new current scale!" data-step='2'>
                   <div id="scale_navigator">
                   </div>
                </div>
-               <div id="autopilot_container">
+               <div id="autopilot_container" data-title="Autopilot" data-intro="Check the autopilot checkbox to automatically select a new current scale every 10 seconds or so" data-step='3'>
                   <form>
                      <input type="checkbox" id="autopilot_checkbox" style="transform: scale(2);"> autopilot</input>
                   </form>
                </div>
-               <div id="chatroom_container">
+               <div id="chatroom_container" data-title="Join Ensemble" data-intro="Create an ensemble for your friends to join with the 'Create Ensemble' input, or join an existing ensemble from the 'Join Ensemble' dropdown. Checking the 'am host' checkbox will put you in charge of selecting the current scale for everyone in your ensemble" data-step='5'>
                   <input type="checkbox" id="host-select" value="false">am host</input>
                   <form id="room-creation-form">
                      <input id="room-name-input" />
@@ -64,7 +73,7 @@
                   <p id="scale_from_firebase" style="visibility: hidden;"></p>
                </div>  
             </div>
-            <div class="instrument_area">
+            <div class="instrument_area" data-title="Instrument Area" data-intro="Use the 'Select Interface' dropdown populate this space with instruments you want to make music with" data-step='4'>
                <div id="selectbox_container">
                   <form action="" method="post">
                      <select id='purpose' style="transform: scale(2);">
@@ -94,9 +103,9 @@
                         <optgroup label="MIDI">
                            <option value="10">select MIDI driver</option>
                         </optgroup>
-                        <!-- <optgroup label="Graphs">
+                        <optgroup label="Scale Network Visualizations">
                            <option value="11">3D Network Graph</option>
-                        </optgroup> -->
+                        </optgroup>
                      </select>
                   </form>
                </div>
@@ -819,96 +828,12 @@
                      </g>
                   </svg>
                </div>
-               <!-- <div id="graph_container" style='display:none !important; position: relative;' >
-                 <div id="3d-graph" style='z-index: -2; margin-left:-30%; margin-top:-10%;'></div> -->
-<!--                  <script>
-
-                   const elem = document.getElementById('3d-graph');
-
-                   let selectedId = null;
-                   const highlightNodes = new Set();
-                   const highlightLinks = new Set();
-                   let hoverNode = null;
-
-                   const graph = ForceGraph3D()
-                     (elem)
-                       .jsonUrl('miserables.json')
-                       .backgroundColor('#00ff0000')
-                       .linkColor("black")
-                       .linkOpacity(10)
-                       .linkWidth(0.5)
-                       .linkThreeObjectExtend(true)
-                       .nodeLabel('id')
-                       .onNodeDragEnd(node => {
-                         node.fx = node.x;
-                         node.fy = node.y;
-                         node.fz = node.z;
-                         console.log(node);
-                       })
-                       .nodeColor(nodeColor);
-                       
-
-                   function nodeColor(node) {
-                     if (`${node.id}` === `${selectedId}`) {
-                       // no state change
-                       // if ((!node && !highlightNodes.size) || (node && hoverNode === node)) return;
-
-                       // highlightNodes.clear();
-                       // highlightLinks.clear();
-                       // if (node) {
-                       //   highlightNodes.add(node);
-                       //   data.scales[node.id].adjacent_scales.forEach(neighbor => highlightNodes.add(neighbor));
-                       //   node.links.forEach(link => highlightLinks.add(link));
-                       //   console.log(data.scales[node.id].adjacent_scales);
-                       // }
-
-                       // hoverNode = node || null;
-
-                       // updateHighlight();
-                       
-                       const distance = 400;
-                       const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
-
-                       graph.cameraPosition(
-                         { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-                         node, // lookAt ({ x, y, z })
-                         3000  // ms transition duration
-                       );
-                       return "red";
-                     }
-                     return "black";
-                   }
-
-                   function updateHighlight() {
-                     // trigger update of highlighted objects in scene
-                     graph
-                       .nodeColor(graph.nodeColor())
-                       .linkWidth(graph.linkWidth());
-                     }
-
-                   function selectExternally(id) {
-                     console.log({ id });
-                     selectedId = id;
-                     graph?.refresh();
-                   }
+               <div id="graph_container" style='display:none !important; position: relative;' >
+                 <a href="https://scale-navigator-ensemble.web.app/3d.html"><br/><br/>3d Network Graph</a>
+                 <script>
 
 
-                   $(function(){
-                      //Store the test paragraph node
-                      var el = $('#send_to_firebase');
-
-                      //Observe the paragraph
-                      this.observer = new MutationObserver( function(mutations) {
-                        selectExternally(document.getElementById("send_to_firebase").innerHTML);
-
-                      }.bind(this));
-                      this.observer.observe(el.get(0), {characterData: true, childList: true});
-                  });
-
-
-
-                 </script> -->
-               <!-- </div> -->
+                 </script>
                <div id="banjo_container" style='display:none !important; position: relative;' >
                   <span class='close' onclick="document.getElementById('banjo_container').style.display='none';" >x</span>
 
@@ -1252,6 +1177,8 @@
          </div>
       </html>
       <!-- scritps -->
-      
+      <script>
+         introJs().start();
+      </script>
    </body>
 </html>

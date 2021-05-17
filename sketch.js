@@ -46,9 +46,9 @@ $(document).ready(function() {
             $("#snharp_container").show();
         } else if (this.value == '10') {
             $("#midi_container").show();} 
-        // else if (this.value == '11') {
-        //     $("#graph_container").show();
-        // }
+        else if (this.value == '11') {
+            $("#graph_container").show();
+        }
 
 
     });
@@ -326,31 +326,31 @@ function pick_scale(key) {
         document.getElementById("logo").style.color=rgb(fontcolor[0],fontcolor[1],fontcolor[2]);
     }
 
-    var tritoneList = [];
-    var majorThirdList = [];
+    // var tritoneList = [];
+    // var majorThirdList = [];
 
-    for( let i = 0; i < scales[key].pitch_classes.length; i++ ) {
-        for( let j = 0; j < scales[key].pitch_classes.length; j++ ) {
+    // for( let i = 0; i < scales[key].pitch_classes.length; i++ ) {
+    //     for( let j = 0; j < scales[key].pitch_classes.length; j++ ) {
 
-            if((scales[key].pitch_classes[i] != scales[key].pitch_classes[j]) && ((scales[key].pitch_classes[i]-scales[key].pitch_classes[j])%6==0)){
-                //console.log(scales[key].pitch_classes[i], " minus ", scales[key].pitch_classes[j], "modulo 6 equals ", (scales[key].pitch_classes[i]-scales[key].pitch_classes[j])%6);
-                if ((scales[key].pitch_classes[i] < 6)&&(scales[key].pitch_classes[i])>-6){
-                    tritoneList.push(scales[key].pitch_classes[i]);
-                    tritoneList.push(scales[key].pitch_classes[i]-12);
-                }
+    //         if((scales[key].pitch_classes[i] != scales[key].pitch_classes[j]) && ((scales[key].pitch_classes[i]-scales[key].pitch_classes[j])%6==0)){
+    //             //console.log(scales[key].pitch_classes[i], " minus ", scales[key].pitch_classes[j], "modulo 6 equals ", (scales[key].pitch_classes[i]-scales[key].pitch_classes[j])%6);
+    //             if ((scales[key].pitch_classes[i] < 6)&&(scales[key].pitch_classes[i])>-6){
+    //                 tritoneList.push(scales[key].pitch_classes[i]);
+    //                 tritoneList.push(scales[key].pitch_classes[i]-12);
+    //             }
                 
-            }
-        }
-    }
-    var num = currTritoneRoot;
+    //         }
+    //     }
+    // }
+    // var num = currTritoneRoot;
     
     
-    var tritoneList = tritoneList.sort((a, b) => Math.abs(a - num) - Math.abs(b - num));
+    // var tritoneList = tritoneList.sort((a, b) => Math.abs(a - num) - Math.abs(b - num));
     
     
-    console.log("ttlist, ", tritoneList);
-    currTritoneRoot = tritoneList[0];
-    console.log("from that, weve decided the tt is now ",currTritoneRoot);
+    // console.log("ttlist, ", tritoneList);
+    // currTritoneRoot = tritoneList[0];
+    // console.log("from that, weve decided the tt is now ",currTritoneRoot);
 
 
     
@@ -516,9 +516,15 @@ function drawScale(key, x, y, level, ancestors, offset) {
     }
 
     // console.log("fonty colory", fontcolor);
-    const shape_size = ($(".scalenav_container").height() * (0.15) / level);
+    
+    if (window.innerHeight > window.innerWidth){
+        var shape_size = ($(".scalenav_container").height() * (0.23) / level);
+    } else {
+        var shape_size = ($(".scalenav_container").height() * (0.15) / level);
+    }
+    
 
-    //all of the babie
+    //all of the babies
     let filt_adjacent_scales = scales[key].adjacent_scales;
 
     //filter out all ancestors

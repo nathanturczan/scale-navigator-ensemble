@@ -75,6 +75,11 @@
   z-index:4;
 }
 
+#author{
+  margin-top: -41px;
+  z-index:5;
+}
+
 .scalenav_container{
   height: 66vh;
   z-index:2;
@@ -275,7 +280,7 @@ form {
 
   .scalenav_container{
     justify-content: center;
-    height: 30vh;
+    height: 40vh;
     z-index:2;
   }
 
