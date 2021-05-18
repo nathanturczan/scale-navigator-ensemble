@@ -25,10 +25,10 @@
   border-radius: 3px;
 }
 .piano .white:active {
-  background: deeppink;
+  background: #3FEEE6;
 }
 .piano .black {
-  background-color: black;
+  background-color: white;
   height: 116.666px;
   width: 29.166px;
   margin-left: -17px;
@@ -37,11 +37,11 @@
   border-radius: 0 0 3px 3px;
 }
 .piano .black:active {
-  background: deeppink;
+  background: #3FEEE6;
 }
 .piano .black-active {
-  background: teal;
+  background: #FC4445;
 }
 .piano .white-active {
-  background: teal;
+  background: #FC4445;
 }

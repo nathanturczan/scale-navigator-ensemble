@@ -37,28 +37,30 @@
       <html>
          <div class="grid">
             <div class="navigation">
-               <div data-title="Welcome!" data-intro="Scale Navigator Ensemble is a web app for exploring harmony! Use it to:<br/>
-                                  • Compose music<br/>
-                                  • Learn music theory concepts<br/>
-                                  • Stay harmonically synchronized while improvising in ensembles with your friends<br/>
-                                  • Output MIDI to your computer for integration with your Digital Audio Workstation<br/>
-                                  " data-step='1'>
+               <div data-title="Welcome!" data-intro="<b>Scale Navigator Ensemble</b> is a web app for exploring harmony! Use it to:<br/><br/>
+                                  • Compose <b>music</b><br/>
+                                  • Learn <b>music theory</b> concepts<br/>
+                                  • Stay <b>harmonically synchronized</b> while improvising in <b>ensembles</b> with your friends<br/>
+                                  • Output <b>MIDI</b> to your computer for integration with your Digital Audio Workstation<br/>
+                                  " data-position='right' data-step='1'>
                   <div id="title_container">
                      scale navigator
                   </div>
                   <div id="logo">ensemble</div>
                   <p  id="author" align="left" margin-top="-41px">by <a href="https://www.nathanturczan.com/">Nathan Turczan</a></p>
                </div>
-               <div class="scalenav_container" data-title="Scale Navigator interface" data-intro="The current scale you're jamming to is in the middle of the interface, radially surrounded my neighbor scales that differ by only 1 note. Click on a scale shape to select the new current scale!" data-step='2'>
+               <div class="scalenav_container" data-title="Scale Navigator interface" data-intro="This is your interface for navigating the <a href='https://www.nathanturczan.com/portfolio/scale_nav_explanation/networklabels.png'>scale network</a>. The selected scale you're currently jamming to is in the middle of the interface, radially surrounded by neighbor scales that differ by only 1 note. Click on a scale shape to select the new current scale!<br/> <br/> More info on scale networks:<br/><br/>
+                                  • <a href='https://dmitri.mycpanel.princeton.edu/files/publications/debussy.pdf'>Scale Networks and Debussy</a><br/>
+                                  • <a href='https://music.arts.uci.edu/abauer/3.1/notes/Chord-Scale_Networks.pdf'>Chord-Scale Networks in the Music and Improvisations of Wayne Shorter</a>" data-step='2'>
                   <div id="scale_navigator">
                   </div>
                </div>
-               <div id="autopilot_container" data-title="Autopilot" data-intro="Check the autopilot checkbox to automatically select a new current scale every 10 seconds or so" data-step='3'>
+               <div id="autopilot_container" data-title="Autopilot" data-intro="Check the <b>autopilot checkbox</b> to automatically select a new current scale every 10 seconds or so" data-step='3'>
                   <form>
                      <input type="checkbox" id="autopilot_checkbox" style="transform: scale(2);"> autopilot</input>
                   </form>
                </div>
-               <div id="chatroom_container" data-title="Join Ensemble" data-intro="Create an ensemble for your friends to join with the 'Create Ensemble' input, or join an existing ensemble from the 'Join Ensemble' dropdown. Checking the 'am host' checkbox will put you in charge of selecting the current scale for everyone in your ensemble" data-step='5'>
+               <div id="chatroom_container" data-title="Join Ensemble" data-intro="Create an ensemble for your friends to join with the <b>Create Ensemble</b> input, or join an existing ensemble from the <b>Join Ensemble</b> dropdown. Checking the <b>am host</b> checkbox will put you in charge of selecting the current scale for everyone in your ensemble" data-step='5'>
                   <input type="checkbox" id="host-select" value="false">am host</input>
                   <form id="room-creation-form">
                      <input id="room-name-input" />
@@ -73,7 +75,7 @@
                   <p id="scale_from_firebase" style="visibility: hidden;"></p>
                </div>  
             </div>
-            <div class="instrument_area" data-title="Instrument Area" data-intro="Use the 'Select Interface' dropdown populate this space with instruments you want to make music with" data-step='4'>
+            <div class="instrument_area" data-title="Instrument Area" data-intro="Use the 'Select Interface' dropdown populate this space with <b>notation</b>,<b>chords</b>, <b>tabs</b>, and <b>instruments</b> you want to make music with" data-step='4'>
                <div id="selectbox_container">
                   <form action="" method="post">
                      <select id='purpose' style="transform: scale(2);">
@@ -829,11 +831,9 @@
                   </svg>
                </div>
                <div id="graph_container" style='display:none !important; position: relative;' >
+                  <span class='close' onclick="document.getElementById('graph_container').style.display='none';" >x</span>
                  <a href="https://scale-navigator-ensemble.web.app/3d.html"><br/><br/>3d Network Graph</a>
-                 <script>
-
-
-                 </script>
+              </div>
                <div id="banjo_container" style='display:none !important; position: relative;' >
                   <span class='close' onclick="document.getElementById('banjo_container').style.display='none';" >x</span>
 

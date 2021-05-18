@@ -296,7 +296,7 @@ form {
     justify-content: flex-start;
 
     width: 100vw;
-    height: auto;
+    height: 100vw;
   }
   
 }
