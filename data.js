@@ -1,3 +1,54 @@
+const mode_data={
+    "scale_classes":{
+        "acoustic":[
+            "Acoustic",
+            "Major-Minor",
+            "Minor Locrian",
+            "Superlocrian",
+            "Melodic Minor",
+            "Dorian ♭2",
+            "Lydian Augmented"
+        ],
+        "diatonic":[
+            "Ionian", 
+            "Dorian", 
+            "Phrygian", 
+            "Lydian", 
+            "Mixolydian", 
+            "Aeolian", 
+            "Locrian"
+        ],
+        "harmonic_major":[
+            "Harmonic Major",
+            "Dorian ♭5",
+            "Phrygian ♭4",
+            "Lydian ♭3",
+            "Mixolydian ♭2",
+            "Lydian Augmented #2",
+            "Locrian ♭7"
+        ],
+        "harmonic_minor":[
+            "Locrian ♮6",
+            "Major Augmented",
+            "Lydian Diminished",
+            "Phrygian Dominant",
+            "Aeolian Harmonic",
+            "Ultralocrian"
+        ],
+        "hexatonic":[
+            "Hexatonic",
+            "Augmented"
+        ],
+        "octatonic":[
+            "Octatonic",
+            "Diminished"
+        ],
+        "whole_tone":[
+            "Whole Tone"
+        ],
+    }
+};
+
 const data = {
     "scales": {
         "a_acoustic": {
@@ -1331,4 +1382,4 @@ const data = {
             "scale_class": "whole_tone"
         }
     }
-}
+};

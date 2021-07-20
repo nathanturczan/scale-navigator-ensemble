@@ -1,7 +1,7 @@
 const scales = data["scales"]
 const startingScale = scales["d_diatonic"]
 var canvas;
-var curr_scale = "d_diatonic";
+var curr_scale = "c_diatonic";
 var lastclick;
 var selectedMidi;
 var lastAutoPChange;
@@ -9,6 +9,20 @@ var autopilotIsRunning = false;
 
 var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
+function openTab(evt, tabName) {
+    
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
 
 //make the keys navigate the same journey as the touch
 //maybe just add 49 rather than using a dictionary
@@ -21,55 +35,23 @@ const num_convert = {
     54: 5
 };
 
-$(document).ready(function() {
-    $('#purpose').on('change', function() {
-        console.log(this.value);
-        if (this.value == '0') {
-            $("#mandolin_container").show();
-        } else if (this.value == '1') {
-            $("#guitar_container").show();
-        } else if (this.value == '2') {
-            $("#banjo_container").show();
-        } else if (this.value == '3') {
-            $("#ukulele_container").show();
-        } else if (this.value == '4') {
-            $("#flute_container").show();
-        } else if (this.value == '5') {
-            $("#piano_container").show();
-        } else if (this.value == '6') {
-            $("#notation_container").show();
-        } else if (this.value == '7') {
-            $("#chordstext_container").show();
-        } else if (this.value == '8') {
-            $("#chordcircle_container").show();
-        } else if (this.value == '9') {
-            $("#snharp_container").show();
-        } else if (this.value == '10') {
-            $("#midi_container").show();} 
-        else if (this.value == '11') {
-            $("#graph_container").show();
-        }
 
-
-    });
-});
 
 function drawGradient() {
-    rectMode(CENTER);
-    noStroke();
-    fill('white');
-    rect($(".scalenav_container").width() / 2, $(".scalenav_container").height() / 2, $(".scalenav_container").width(), $(".scalenav_container").height());
+
+
+    clear();
 }
 
 function setup() {
-    if (isChrome == true){
+    if (isChrome == true) {
         document.getElementById("output_port_selector").addEventListener("change", function(evt) {
             selectedMidi = evt.target.value;
             console.log(selectedMidi);
         })
 
     }
-    
+
     ellipseMode(RADIUS);
     canvas = createCanvas($(".scalenav_container").width(), $(".scalenav_container").height());
     canvas.parent('scale_navigator');
@@ -79,12 +61,13 @@ function setup() {
 }
 
 var midi;
+
 function on_midi_success(arg_midi) {
     console.log("MIDI connection was successful");
     midi = arg_midi;
 
     const outputs = arg_midi.outputs;
-    for (let output of outputs.values()){
+    for (let output of outputs.values()) {
         var opt = document.createElement("option");
         opt.text = output.name;
         document.getElementById("output_port_selector").add(opt);
@@ -95,7 +78,7 @@ function on_midi_failure(error_code) {
     console.error("Could not connect to MIDI: error code " + error_code);
 }
 
-if (isChrome == true){
+if (isChrome == true) {
     navigator.requestMIDIAccess().then(on_midi_success, on_midi_failure);
 }
 
@@ -114,18 +97,18 @@ no_fly_list.unshift(curr_scale);
 
 // if ((document.getElementById("host-select") === null || document.getElementById("host-select").value === false) && (RoomJoined === true)){
 //     check if you are the host. if no, then disable "am host" checkbox and "autopilot" checkbox
-    //document.getElementById("myCheck").disabled = true;
+//document.getElementById("myCheck").disabled = true;
 // } 
 
 
-$(function(){
+$(function() {
     //Store the test paragraph node
     var el = $('#scale_from_firebase');
 
     //Observe the paragraph
-    this.observer = new MutationObserver( function(mutations) {
-        if (document.getElementById("send_to_firebase").innerHTML === document.getElementById("scale_from_firebase").innerHTML){
-        return;
+    this.observer = new MutationObserver(function(mutations) {
+        if (document.getElementById("send_to_firebase").innerHTML === document.getElementById("scale_from_firebase").innerHTML) {
+            return;
         } else {
             key = document.getElementById("scale_from_firebase").innerHTML;
             touch_data = [];
@@ -134,9 +117,9 @@ $(function(){
 
         }
 
-        
+
     }.bind(this));
-    this.observer.observe(el.get(0), {characterData: true, childList: true});
+    this.observer.observe(el.get(0), { characterData: true, childList: true });
 });
 
 
@@ -263,12 +246,12 @@ function mod(a, b) {
 }
 
 function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
     }
-  }
 }
 
 var note_names = ["C", "D♭", "D", "E♭", "E", "F", "F#", "G", "A♭", "A", "B♭", "B"];
@@ -279,7 +262,7 @@ var currMajThirdRoot;
 currMajThirdRoot = 0;
 
 function pick_scale(key) {
-    
+
     document.getElementById("send_to_firebase").innerHTML = key;
 
     console.log(key);
@@ -300,22 +283,22 @@ function pick_scale(key) {
     document.getElementById("chords1").innerHTML = scales[key].chords;
     document.getElementById("chords1").style.fontSize = '30px';
 
-    function rgb(r, g, b){
-      return "rgb("+r+","+g+","+b+")";
+    function rgb(r, g, b) {
+        return "rgb(" + r + "," + g + "," + b + ")";
     }
 
     if (scales[key].scale_class == "whole_tone") {
         fill(map(scales[key].root % 2, 0, 1, 200, 150));
         fontcolor = map(scales[key].root % 2, 0, 1, 200, 150);
-        document.getElementById("logo").style.color=rgb(fontcolor,fontcolor,fontcolor);
+        document.getElementById("logo").style.color = rgb(fontcolor, fontcolor, fontcolor);
     } else if (scales[key].scale_class == "octatonic") {
         fill(map(scales[key].root % 3, 0, 2, 200, 133));
         fontcolor = map(scales[key].root % 3, 0, 2, 200, 133);
-        document.getElementById("logo").style.color=rgb(fontcolor,fontcolor,fontcolor);
+        document.getElementById("logo").style.color = rgb(fontcolor, fontcolor, fontcolor);
     } else if (scales[key].scale_class == "hexatonic") {
         fill(map(scales[key].root % 4, 0, 3, 200, 100));
         fontcolor = map(scales[key].root % 4, 0, 3, 200, 100);
-        document.getElementById("logo").style.color=rgb(fontcolor,fontcolor,fontcolor);
+        document.getElementById("logo").style.color = rgb(fontcolor, fontcolor, fontcolor);
     } else {
         fill(hsvToRgb(map((scales[key].root * 7) % 12, 11, 0, 0, 1),
             map((scales[key].root * 7) % 12, 0, 11, 0.1, 0.5),
@@ -323,7 +306,7 @@ function pick_scale(key) {
         fontcolor = hsvToRgb(map((scales[key].root * 7) % 12, 11, 0, 0, 1),
             map((scales[key].root * 7) % 12, 0, 11, 0.1, 0.5),
             1);
-        document.getElementById("logo").style.color=rgb(fontcolor[0],fontcolor[1],fontcolor[2]);
+        document.getElementById("logo").style.color = rgb(fontcolor[0], fontcolor[1], fontcolor[2]);
     }
 
     // var tritoneList = [];
@@ -338,52 +321,52 @@ function pick_scale(key) {
     //                 tritoneList.push(scales[key].pitch_classes[i]);
     //                 tritoneList.push(scales[key].pitch_classes[i]-12);
     //             }
-                
+
     //         }
     //     }
     // }
     // var num = currTritoneRoot;
-    
-    
+
+
     // var tritoneList = tritoneList.sort((a, b) => Math.abs(a - num) - Math.abs(b - num));
-    
-    
+
+
     // console.log("ttlist, ", tritoneList);
     // currTritoneRoot = tritoneList[0];
     // console.log("from that, weve decided the tt is now ",currTritoneRoot);
 
 
-    
+
     if (!midi) {
         return;
     }
-    midi.outputs.forEach(function (port, port_id) {
-        if (port.name == selectedMidi ) {
-            for( let i = 0; i < 127; i++ ) {
+    midi.outputs.forEach(function(port, port_id) {
+        if (port.name == selectedMidi) {
+            for (let i = 0; i < 127; i++) {
                 port.send([146, i, 0]);
             }
-            for( let i = 0; i < 127; i++ ) {
+            for (let i = 0; i < 127; i++) {
                 port.send([147, i, 0]);
             }
-            for( let i = 0; i < 127; i++ ) {
+            for (let i = 0; i < 127; i++) {
                 port.send([148, i, 0]);
             }
-            for( let i = 0; i < 127; i++ ) {
+            for (let i = 0; i < 127; i++) {
                 port.send([149, i, 0]);
             }
-            for( let i = 0; i < 127; i++ ) {
+            for (let i = 0; i < 127; i++) {
                 port.send([150, i, 0]);
             }
-            port.send([146, scales[key].video_index-1, 127]); 
-            port.send([147, scales[key].pitch_classes[0], 127]); 
-            port.send([148, scales[key].root, 127]); 
-            port.send([150, 127, 127]); 
+            port.send([146, scales[key].video_index - 1, 127]);
+            port.send([147, scales[key].pitch_classes[0], 127]);
+            port.send([148, scales[key].root, 127]);
+            port.send([150, 127, 127]);
             sleep(20);
-            for( let i = 0; i < scales[key].pitch_classes.length; i++ ) {
+            for (let i = 0; i < scales[key].pitch_classes.length; i++) {
                 port.send([149, scales[key].pitch_classes[i], 127]);
             }
             sleep(20);
-            port.send([150, 0, 127]); 
+            port.send([150, 0, 127]);
 
         }
     });
@@ -442,45 +425,6 @@ function polygon(x, y, radius, npoints, sClass) {
 }
 
 
-//delete this later, use p5 native hsv mode
-function hsvToRgb(h, s, v) {
-    var r, g, b;
-
-    var i = Math.floor(h * 6);
-    var f = h * 6 - i;
-    var p = v * (1 - s);
-    var q = v * (1 - f * s);
-    var t = v * (1 - (1 - f) * s);
-
-    switch (i % 6) {
-        case 0:
-            r = v, g = t, b = p;
-            break;
-        case 1:
-            r = q, g = v, b = p;
-            break;
-        case 2:
-            r = p, g = v, b = t;
-            break;
-        case 3:
-            r = p, g = q, b = v;
-            break;
-        case 4:
-            r = t, g = p, b = v;
-            break;
-        case 5:
-            r = v, g = p, b = q;
-            break;
-    }
-
-    return [r * 255, g * 255, b * 255];
-}
-
-function noteToFreq(note) {
-    let a = 440; //frequency of A (coomon value is 440Hz)
-    return (a / 32) * (2 ** ((note - 9) / 12));
-}
-
 //keep tally of wha's been printed so far
 const nodes_visited = {};
 
@@ -516,13 +460,13 @@ function drawScale(key, x, y, level, ancestors, offset) {
     }
 
     // console.log("fonty colory", fontcolor);
-    
-    if (window.innerHeight > window.innerWidth){
+
+    if (window.innerHeight > window.innerWidth) {
         var shape_size = ($(".scalenav_container").height() * (0.23) / level);
     } else {
         var shape_size = ($(".scalenav_container").height() * (0.15) / level);
     }
-    
+
 
     //all of the babies
     let filt_adjacent_scales = scales[key].adjacent_scales;
