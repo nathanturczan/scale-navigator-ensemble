@@ -6,7 +6,7 @@
 - [ ] I think index.html can be left alone for now -- doesn't need refactoring???
 - [ ] sketch.js needs a complete overhaul. Some priorities:
   - responsive / mobile first design.
-    - logo is suze responsive, also changes color according to current scale
+    - logo is size responsive, also changes color according to current scale
   - dealing with mouse clicks VS touchscreens
   - integrating Ondrej's new animated interface
   - autopilot (chooses a random scale from the list of adjescent scales every X seconds. Perhaps a slider for user to control rate of change??)
