@@ -1,4 +1,5 @@
-# Scale Navigator Dashboard (previously called scale navigator ensemble. Also thinking about re-naming to "Scale Navigator Web")
+# Scale Navigator Dashboard 
+###(previously called scale navigator ensemble. Also thinking about re-naming to "Scale Navigator Web")
 ## to-do list 7-22-2021
 
 - [ ] Re-factor everything. I think we should use React -- this will make it easier to port to mobile.
@@ -23,7 +24,7 @@
     
     
   
-##FUTURE TO - DO 
+## FUTURE TO - DO 
 ### user database
 - [ ]  sign up
 - [ ]  login
