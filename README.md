@@ -9,7 +9,7 @@
     - logo is size responsive, also changes color according to current scale
   - dealing with mouse clicks VS touchscreens
   - integrating Ondrej's new animated interface
-  - autopilot (chooses a random scale from the list of adjescent scales every X seconds. Perhaps a slider for user to control rate of change??)
+  - [x] autopilot (chooses a random scale from the list of adjescent scales every X seconds. Perhaps a slider for user to control rate of change??)
   - communication to Firebase database 
     - creating chatrooms (or "ensemble")
     - updating who is host 
