@@ -15,6 +15,7 @@ let db;
 let room = null;
 
 let isHost = false;
+console.log("got into index");
 // Initialize Firebase
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
