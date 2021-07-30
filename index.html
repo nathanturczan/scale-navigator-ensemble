@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <base href=".">
-      <meta charset="UTF-8">
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-      <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="./style.css">
-      <link rel="stylesheet" href="./guitarstyle.css">
-      <link rel="stylesheet" href="./mandolinstyle.css">
-      <link rel="stylesheet" href="./pianostyle.css">
-      <link rel="stylesheet" href="./flutestyle.css">
-      <script src="libraries/p5.js"></script>
-      <script src="libraries/p5.dom.js"></script>
-      <script src="data.js"></script>
-      <script src="vexflow-debug.js"></script>
-      <script src="lilypond.js"></script>
-      <script src="notation.js"></script>
-      <script src="polygon.js"></script>
-      <script src="helper.js"></script>
-      <script language="javascript" type="text/javascript" src="sketch.js"></script>
-      <script src="./guitarscript.js"></script>
-      <script src="./pianoscript.js"></script>
-      <script src="./flutescript.js"></script>
-      <script src="./chordcirclescript.js"></script>
-      <script src="//unpkg.com/3d-force-graph"></script>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-      <script src="//unpkg.com/three"></script>
-      <script src="//unpkg.com/3d-force-graph"></script>
-      <link rel="icon" href="icon_scalenav.gif" type="image/gif">
-      <!-- <script src="//unpkg.com/3d-force-graph"></script> -->
-      <title>Scale Navigator Dashboard</title>
-   </head>
-   <body>
-      <!-- <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script> -->
-      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-      <script src="index.js" type="module"></script>
-      <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
-      <html>
-         <div id="grid">
-            <div id="navigation">
-               <div data-title="Welcome!" data-intro="<b>Scale Navigator Dashboard</b> is a web app for exploring harmony! Use it to:<br/><br/>
+
+<head>
+    <base href=".">
+    <meta charset="UTF-8">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./guitarstyle.css">
+    <link rel="stylesheet" href="./mandolinstyle.css">
+    <link rel="stylesheet" href="./pianostyle.css">
+    <link rel="stylesheet" href="./flutestyle.css">
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="data.js"></script>
+    <script src="vexflow-debug.js"></script>
+    <script src="lilypond.js"></script>
+    <script src="notation.js"></script>
+    <script src="polygon.js"></script>
+    <script src="helper.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script src="./guitarscript.js"></script>
+    <script src="./pianoscript.js"></script>
+    <script src="./flutescript.js"></script>
+    <script src="./chordcirclescript.js"></script>
+    <script src="//unpkg.com/3d-force-graph"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/3d-force-graph"></script>
+    <link rel="icon" href="icon_scalenav.gif" type="image/gif">
+    <!-- <script src="//unpkg.com/3d-force-graph"></script> -->
+    <title>Scale Navigator Dashboard</title>
+</head>
+
+<body>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    <script src="index.js" type="module"></script>
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <html>
+    <div id="grid">
+        <div id="navigation">
+            <div data-title="Welcome!" data-intro="<b>Scale Navigator Dashboard</b> is a web app for exploring harmony! Use it to:<br/><br/>
                   • Compose <b>music</b><br/>
                   • Learn <b>music theory</b> concepts<br/>
                   • Stay <b>harmonically synchronized</b> while improvising in <b>ensembles</b> with your friends<br/>
                   • Output <b>MIDI</b> to your computer for integration with your Digital Audio Workstation<br/>
                   " data-position='right' data-step='1'>
-                  <div id="title_container">scale navigator</div>
-                  <div id="logo">dashboard</div>
-                  <p id="author">by <a href="https://www.nathanturczan.com/">Nathan Turczan</a></p>
-               </div>
-               <div class="scalenav_container" data-title="Scale Navigator interface" data-intro="This is your interface for navigating the <a href='https://www.nathanturczan.com/portfolio/scale_nav_explanation/networklabels.png'>scale network</a>. The selected scale you're currently jamming to is in the middle of the interface, radially surrounded by neighbor scales that differ by only 1 note. Click on a scale shape to select the new current scale!<br/> <br/> More info on scale networks:<br/><br/>
+                <div id="title_container">scale navigator</div>
+                <div id="logo">dashboard</div>
+                <p id="author">by <a href="https://www.nathanturczan.com/">Nathan Turczan</a></p>
+            </div>
+            <div class="scalenav_container" data-title="Scale Navigator interface" data-intro="This is your interface for navigating the <a href='https://www.nathanturczan.com/portfolio/scale_nav_explanation/networklabels.png'>scale network</a>. The selected scale you're currently jamming to is in the middle of the interface, radially surrounded by neighbor scales that differ by only 1 note. Click on a scale shape to select the new current scale!<br/> <br/> More info on scale networks:<br/><br/>
                   • <a href='https://dmitri.mycpanel.princeton.edu/files/publications/debussy.pdf'>Scale Networks and Debussy</a><br/>
                   • <a href='https://music.arts.uci.edu/abauer/3.1/notes/Chord-Scale_Networks.pdf'>Chord-Scale Networks in the Music and Improvisations of Wayne Shorter</a>" data-step='2'>
-                  <div id="scale_navigator">
-                  </div>
-               </div>
-               <div id="autopilot_container" data-title="Autopilot" data-intro="Check the <b>autopilot checkbox</b> to automatically select a new current scale every 10 seconds or so" data-step='3'>
-                  <form>
-                     <input type="checkbox" id="autopilot_checkbox" style="transform: scale(2);"> autopilot</input>
-                  </form>
-               </div>
-               <div id="chatroom_container" data-title="Join Ensemble" data-intro="Create an ensemble for your friends to join with the <b>Create Ensemble</b> input, or join an existing ensemble from the <b>Join Ensemble</b> dropdown. Checking the <b>am host</b> checkbox will put you in charge of selecting the current scale for everyone in your ensemble" data-step='5'>
-                  <input type="checkbox" id="host-select" value="false">am host</input>
-                  <form id="room-creation-form">
-                     <input id="room-name-input" />
-                     <button type="submit" style="flex-grow: 1;">create ensemble</button>
-                  </form>
-                  <form id="room-select-form">
-                     <select id="available-rooms"></select>
-                     <button type="submit" style="flex-grow: 1;">join ensemble</button>
-                  </form>
-               </div>
-               <!-- <div id="monetize" >
+                <div id="scale_navigator">
+                </div>
+            </div>
+            <div id="autopilot_container" data-title="Autopilot" data-intro="Check the <b>autopilot checkbox</b> to automatically select a new current scale every 10 seconds or so" data-step='3'>
+                <form>
+                    <input type="checkbox" id="autopilot_checkbox" style="transform: scale(2);"> autopilot</input>
+                </form>
+            </div>
+            <div id="chatroom_container" data-title="Join Ensemble" data-intro="Create an ensemble for your friends to join with the <b>Create Ensemble</b> input, or join an existing ensemble from the <b>Join Ensemble</b> dropdown. Checking the <b>am host</b> checkbox will put you in charge of selecting the current scale for everyone in your ensemble"
+                data-step='5'>
+                <input type="checkbox" id="host-select" value="false">am host</input>
+                <form id="room-creation-form">
+                    <input id="room-name-input" />
+                    <button type="submit" style="flex-grow: 1;">create ensemble</button>
+                </form>
+                <form id="room-select-form">
+                    <select id="available-rooms"></select>
+                    <button type="submit" style="flex-grow: 1;">join ensemble</button>
+                </form>
+            </div>
+            <!-- <div id="monetize" >
                   <a href="https://www.paypal.com/donate?business=BZQEBF4SJ489W&item_name=sdf&currency_code=USD">paypal</a>
                   <a href="https://www.patreon.com/Scale_Navigator">patreon</a>
                   </div>  -->
 
 
-                  <!-- Use the 'Select Interface' dropdown populate this space with <b>notation</b>, <b>chords</b>, <b>tabs</b>, and <b>instruments</b> you want to make music with -->
+            <!-- Use the 'Select Interface' dropdown populate this space with <b>notation</b>, <b>chords</b>, <b>tabs</b>, and <b>instruments</b> you want to make music with -->
+        </div>
+        <div id="instrument_area" data-title="Workspace" data-intro="Use these tabs to do cool stuff" data-step='4'>
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Tablature')">tablature</button>
+                <button class="tablinks" onclick="openTab(event, 'MIDI')">MIDI</button>
+                <button class="tablinks" onclick="openTab(event, 'Notepad')">notepad</button>
+                <button class="tablinks" onclick="openTab(event, 'ScaleNetVis'), resizeGraph(), selectExternally(key)">scale network visualization</button>
+                <button class="tablinks" onclick="openTab(event, 'Account')">account</button>
+                <button class="tablinks" onclick="openTab(event, 'About')">about</button>
             </div>
-            <div id="instrument_area" data-title="Workspace" data-intro="Use these tabs to do cool stuff" data-step='4'>
-               <div class="tab">
-                  <button class="tablinks" onclick="openTab(event, 'Tablature')">tablature</button>
-                  <button class="tablinks" onclick="openTab(event, 'MIDI')">MIDI</button>
-                  <button class="tablinks" onclick="openTab(event, 'Notepad')">notepad</button>
-                  <button class="tablinks" onclick="openTab(event, 'ScaleNetVis'), resizeGraph(), selectExternally(key)">scale network visualization</button>
-                  <button class="tablinks" onclick="openTab(event, 'Account')">account</button>
-                  <button class="tablinks" onclick="openTab(event, 'About')">about</button>
-               </div>
-               <div id="Tablature" class="tabcontent">
-                  <div class="selectbox_container">
-                     <form action="" method="post">
+            <div id="Tablature" class="tabcontent">
+                <div class="selectbox_container">
+                    <form action="" method="post">
                         <select id='select_instrument'>
                            <option value="" disabled selected>select interface</option>
                            <optgroup label="fretted intstrument tablature">
@@ -117,11 +120,11 @@
                               <option value="9">scale navigator autoharp</option>
                            </optgroup>
                         </select>
-                     </form>
-                  </div>
-                  <div id="guitar_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('guitar_container').style.display='none';">x</span>
-                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 332">
+                    </form>
+                </div>
+                <div id="guitar_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('guitar_container').style.display='none';">x</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 332">
                         <line stroke="rgb(0,0,0)" stroke-width="7" x1="80" x2="80" y1="59.25" y2="311.5" />
                         <circle cx="255.0" cy="185.0" fill="rgb(200,200,200)" r="20" />
                         <text dy="0.3em" fill="rgb(0,0,0)" font-size="20" font-weight="bold" style="text-anchor:middle" x="255.0" y="185.0">3</text>
@@ -316,50 +319,50 @@
                         <circle class="E" cx="885.0" cy="310" fill="rgb(82,164,229)" r="20" />
                         <text class="E" dy="0.3em" fill="rgb(255,255,255)" font-size="20" font-weight="bold" style="text-anchor:middle" x="885.0" y="310">E</text>
                      </svg>
-                  </div>
-                  <div id="notation_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('notation_container').style.display='none';">x</span>
-                     <div id="notation"></div>
-                  </div>
-                  <div id="chordstext_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('chordstext_container').style.display='none';">x</span>
-                     <!-- <h1>triads:</h1> -->
-                     <span id="chords1">...</span>
-                  </div>
-                  <div id="flute_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('flute_container').style.display='none';">x</span>
-                     <table>
+                </div>
+                <div id="notation_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('notation_container').style.display='none';">x</span>
+                    <div id="notation"></div>
+                </div>
+                <div id="chordstext_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('chordstext_container').style.display='none';">x</span>
+                    <!-- <h1>triads:</h1> -->
+                    <span id="chords1">...</span>
+                </div>
+                <div id="flute_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('flute_container').style.display='none';">x</span>
+                    <table>
                         <tbody>
-                           <tr>
-                              <td><img src="trills/2-4.svg" class="flute_svg" title="d-e" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/3-5.svg" class="flute_svg" title="ef-f" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/4-6.svg" class="flute_svg" title="e-fs" style="max-height:100%; max-width:100%"></td>
-                           </tr>
-                           <tr>
-                              <td><img src="trills/5-6.svg" class="flute_svg" title="f-gf" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/6-8.svg" class="flute_svg" title="fs-gs" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/8-9.svg" class="flute_svg" title="gs-a" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/8-10.svg" class="flute_svg" title="af-bf" style="max-height:100%; max-width:100%"></td>
-                           </tr>
-                           <tr>
-                              <td><img src="trills/9-10.svg" class="flute_svg" title="a-bf" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/10-11.svg" class="flute_svg" title="as-b" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/10-0.svg" class="flute_svg" title="bf-c" style="max-height:100%; max-width:100%"></td>
-                           </tr>
-                           <tr>
-                              <td><img src="trills/0-1.svg" class="flute_svg" title="c-df" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/0-2.svg" class="flute_svg" title="c-d" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/1-2.svg" class="flute_svg" title="cs-d" style="max-height:100%; max-width:100%"></td>
-                              <td><img src="trills/1-3.svg" class="flute_svg" title="df-ef" style="max-height:100%; max-width:100%"></td>
-                           </tr>
+                            <tr>
+                                <td><img src="trills/2-4.svg" class="flute_svg" title="d-e" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/3-5.svg" class="flute_svg" title="ef-f" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/4-6.svg" class="flute_svg" title="e-fs" style="max-height:100%; max-width:100%"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="trills/5-6.svg" class="flute_svg" title="f-gf" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/6-8.svg" class="flute_svg" title="fs-gs" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/8-9.svg" class="flute_svg" title="gs-a" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/8-10.svg" class="flute_svg" title="af-bf" style="max-height:100%; max-width:100%"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="trills/9-10.svg" class="flute_svg" title="a-bf" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/10-11.svg" class="flute_svg" title="as-b" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/10-0.svg" class="flute_svg" title="bf-c" style="max-height:100%; max-width:100%"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="trills/0-1.svg" class="flute_svg" title="c-df" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/0-2.svg" class="flute_svg" title="c-d" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/1-2.svg" class="flute_svg" title="cs-d" style="max-height:100%; max-width:100%"></td>
+                                <td><img src="trills/1-3.svg" class="flute_svg" title="df-ef" style="max-height:100%; max-width:100%"></td>
+                            </tr>
                         </tbody>
-                     </table>
-                  </div>
-                  <div id="piano_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('piano_container').style.display='none';">x</span>
-                     <div class="piano">
+                    </table>
+                </div>
+                <div id="piano_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('piano_container').style.display='none';">x</span>
+                    <div class="piano">
                         <div data-note="C" class="key white">
-                           <span class="key-value"></span>
+                            <span class="key-value"></span>
                         </div>
                         <div data-note="Db" class="key black"></div>
                         <div data-note="D" class="key white"></div>
@@ -372,11 +375,11 @@
                         <div data-note="A" class="key white"></div>
                         <div data-note="Bb" class="key black"></div>
                         <div data-note="B" class="key white"></div>
-                     </div>
-                  </div>
-                  <div id="snharp_container" style='display:none !important; position: relative; margin-left:auto; margin-right:auto; display:block; justify-content: center;'>
-                     <span class='close' onclick="document.getElementById('snharp_container').style.display='none';">x</span>
-                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="-160 5 880 335">
+                    </div>
+                </div>
+                <div id="snharp_container" style='display:none !important; position: relative; margin-left:auto; margin-right:auto; display:block; justify-content: center;'>
+                    <span class='close' onclick="document.getElementById('snharp_container').style.display='none';">x</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="-160 5 880 335">
                         <g>
                            <path d="M 1 21 L 81 21 L 101 61 L 81 101 L 1 101 L -19 61 Z" fill="#11171e" stroke="#8578ae" stroke-miterlimit="10" transform="rotate(90,41,61)" pointer-events="all" />
                            <path d="M 41 131 L 121 131 L 141 171 L 121 211 L 41 211 L 21 171 Z" fill="#11171e" stroke="#8578ae" stroke-miterlimit="10" transform="rotate(90,81,171)" pointer-events="all" />
@@ -587,10 +590,10 @@
                            </g>
                         </g>
                      </svg>
-                  </div>
-                  <div id="mandolin_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('mandolin_container').style.display='none';">x</span>
-                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 232">
+                </div>
+                <div id="mandolin_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('mandolin_container').style.display='none';">x</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 232">
                         <line stroke="rgb(0,0,0)" stroke-width="7" x1="80" x2="80" y1="59.0" y2="211.5" />
                         <circle cx="255.0" cy="135.0" fill="rgb(200,200,200)" r="20" />
                         <text dy="0.3em" fill="rgb(0,0,0)" font-size="20" font-weight="bold" style="text-anchor:middle" x="255.0" y="135">3</text>
@@ -729,10 +732,10 @@
                         <circle class="G" cx="885.0" cy="210" fill="rgb(179,71,227)" r="20" />
                         <text class="G" dy="0.3em" fill="rgb(255,255,255)" font-size="20" font-weight="bold" style="text-anchor:middle" x="885.0" y="210">G</text>
                      </svg>
-                  </div>
-                  <div id="chordcircle_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('chordcircle_container').style.display='none';">x</span>
-                     <svg viewBox="-500 0 2000 1000" xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full">
+                </div>
+                <div id="chordcircle_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('chordcircle_container').style.display='none';">x</span>
+                    <svg viewBox="-500 0 2000 1000" xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full">
                         <!-- X Coordinate transform: fx(x)=(x+1.1)*454.54544-->
                         <!-- Y Coordinate transform: fy(y)=(1.1-y)*454.54544 -->
                         <g style="stroke:#ff0000;stroke-width:1.6666666;stroke-opacity:0.80;fill-opacity:00">
@@ -816,10 +819,10 @@
                            <text class='C#m_chord' dy="0.3em" fill="rgb(255,255,255)" font-size="40" font-weight="bold" style="text-anchor:middle" x="939.057" y="617.645">C#m</text>
                         </g>
                      </svg>
-                  </div>
-                  <div id="banjo_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('banjo_container').style.display='none';">x</span>
-                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 285">
+                </div>
+                <div id="banjo_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('banjo_container').style.display='none';">x</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 285">
                         <defs />
                         <line stroke="rgb(0,0,0)" stroke-width="7" x1="80" x2="80" y1="59.125" y2="211.5" />
                         <line stroke="rgb(150,150,150)" stroke-width="3" x1="150" x2="150" y1="60" y2="210" />
@@ -983,10 +986,10 @@
                         <circle class="D" cx="885.0" cy="260" fill="rgb(105, 128, 115)" r="20" stroke="rgb(0,0,0)" stroke-width="0" />
                         <text class="D" dy="0.3em" fill="rgb(255,255,255)" font-size="20" font-weight="bold" style="text-anchor:middle" x="885.0" y="260">D</text>
                      </svg>
-                  </div>
-                  <div id="ukulele_container" style='display:none !important; position: relative;'>
-                     <span class='close' onclick="document.getElementById('ukulele_container').style.display='none';">x</span>
-                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 234">
+                </div>
+                <div id="ukulele_container" style='display:none !important; position: relative;'>
+                    <span class='close' onclick="document.getElementById('ukulele_container').style.display='none';">x</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" viewBox="0 0 980 234">
                         <line stroke="rgb(0,0,0)" stroke-width="7" x1="80" x2="80" y1="59.0" y2="211.5" />
                         <circle cx="255.0" cy="135.0" fill="rgb(200,200,200)" r="20" />
                         <text dy="0.3em" fill="rgb(0,0,0)" font-size="20" font-weight="bold" style="text-anchor:middle" x="255.0" y="135">3</text>
@@ -1129,649 +1132,1914 @@
                         <circle class="G" cx="885.0" cy="210" fill="rgb(226, 125, 96)" r="20" />
                         <text class="G" dy="0.3em" fill="rgb(255,255,255)" font-size="20" font-weight="bold" style="text-anchor:middle" x="885.0" y="210">G</text>
                      </svg>
-                  </div>
-               </div>
-               <div id="MIDI" class="tabcontent">
-                  <div id="midi_container">
+                </div>
+            </div>
+            <div id="MIDI" class="tabcontent">
+                <div id="midi_container">
 
-                     <div class="inline">
+                    <div class="inline">
                         <label for="select_modes">mode:</label>
                         <select name="select_modes" id="mode">
                           <option value="acoustic">acoustic</option>
                         </select>
-                     </div>
-                     <div class="inline">→<br/>→</div>
+                    </div>
+                    <div class="inline">→<br/>→</div>
 
-                     <div class="inline">
+                    <div class="inline">
                         <label for="root_box">root</label>
                         <div id="root_box" style="border:1px solid black">c#</div>
-                     </div>
-                     <div class="inline">→<br/>→</div>
+                    </div>
+                    <div class="inline">→<br/>→</div>
 
-                     <div class="btn-group inline">
-                       <button>+12</button>
-                       <button>-12</button>
-                     </div>
-                     <div class="inline">=<br/>=</div>
+                    <div class="btn-group inline">
+                        <button>+12</button>
+                        <button>-12</button>
+                    </div>
+                    <div class="inline">=<br/>=</div>
 
-                     <div class="inline">
+                    <div class="inline">
                         <label for="midi_note_#">note number</label>
                         <div id="midi_note_#" style="border:1px solid black">61</div>
-                     </div>
-                     <div class="inline">→<br/>→</div>
+                    </div>
+                    <div class="inline">→<br/>→</div>
 
-                     <div class="inline">
+                    <div class="inline">
                         <label for="output_port_selector">port</label>
                         <select id='output_port_selector'>
                         </select>
-                     </div>
-                     <div class="inline">→<br/>→</div>
+                    </div>
+                    <div class="inline">→<br/>→</div>
 
-                     <form class="inline">
-                       <label for="quantity">channel</label>
-                       <input type="number" id="quantity" name="quantity" min="1" max="5">
-                     </form>
-                  </div>
-               </div>
-               <div id="Notepad" class="tabcontent">
-                  <h3>Notepad</h3>
-                  <p>Notepad is the capital of Japan.</p>
-               </div>
-               <div id="ScaleNetVis" class="tabcontent">
-                  <div id="graph_container" style='position: relative;  '>
-                     <div id="3d-graph" ></div>
+                    <form class="inline">
+                        <label for="quantity">channel</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                    </form>
+                </div>
+            </div>
+            <div id="Notepad" class="tabcontent">
+                <h3>Notepad</h3>
+                <p>Notepad is the capital of Japan.</p>
+            </div>
+            <div id="ScaleNetVis" class="tabcontent">
+                <div id="graph_container" style='position: relative;  '>
+                    <div id="3d-graph"></div>
 
-                     <script>
+                    <script>
                         const scale_classes = ['acoustic', 'diatonic', 'harmonic_major', 'harmonic_minor', 'octatonic', 'whole_tone', 'hexatonic'];
-                        
+
                         // Random connected graph
                         const gData = {
-                         "nodes": [
-                            { "id": "a_acoustic", "scale_class": "acoustic", "root": "a" },
-                            { "id": "a_diatonic", "scale_class": "diatonic", "root": "a" },
-                            { "id": "a_harmonic_major", "scale_class": "harmonic_major", "root": "a" },
-                            { "id": "a_harmonic_minor", "scale_class": "harmonic_minor", "root": "a" },
-                            { "id": "as_acoustic", "scale_class": "acoustic", "root": "as" },
-                            { "id": "as_diatonic", "scale_class": "diatonic", "root": "as" },
-                            { "id": "as_harmonic_major", "scale_class": "harmonic_major", "root": "as" },
-                            { "id": "as_harmonic_minor", "scale_class": "harmonic_minor", "root": "as" },
-                            { "id": "b_acoustic", "scale_class": "acoustic", "root": "b" },
-                            { "id": "b_diatonic", "scale_class": "diatonic", "root": "b" },
-                            { "id": "b_harmonic_major", "scale_class": "harmonic_major", "root": "b" },
-                            { "id": "b_harmonic_minor", "scale_class": "harmonic_minor", "root": "b" },
-                            { "id": "c_acoustic", "scale_class": "acoustic", "root": "c" },
-                            { "id": "c_diatonic", "scale_class": "diatonic", "root": "c" },
-                            { "id": "c_harmonic_major", "scale_class": "harmonic_major", "root": "c" },
-                            { "id": "c_harmonic_minor", "scale_class": "harmonic_minor", "root": "c" },
-                            { "id": "cs_acoustic", "scale_class": "acoustic", "root": "cs" },
-                            { "id": "cs_diatonic", "scale_class": "diatonic", "root": "cs" },
-                            { "id": "cs_harmonic_major", "scale_class": "harmonic_major", "root": "cs" },
-                            { "id": "cs_harmonic_minor", "scale_class": "harmonic_minor", "root": "cs" },
-                            { "id": "d_acoustic", "scale_class": "acoustic", "root": "d" },
-                            { "id": "d_diatonic", "scale_class": "diatonic", "root": "d" },
-                            { "id": "d_harmonic_major", "scale_class": "harmonic_major", "root": "d" },
-                            { "id": "d_harmonic_minor", "scale_class": "harmonic_minor", "root": "d" },
-                            { "id": "ds_acoustic", "scale_class": "acoustic", "root": "ds" },
-                            { "id": "ds_diatonic", "scale_class": "diatonic", "root": "ds" },
-                            { "id": "ds_harmonic_major", "scale_class": "harmonic_major", "root": "ds" },
-                            { "id": "ds_harmonic_minor", "scale_class": "harmonic_minor", "root": "ds" },
-                            { "id": "e_acoustic", "scale_class": "acoustic", "root": "e" },
-                            { "id": "e_diatonic", "scale_class": "diatonic", "root": "e" },
-                            { "id": "e_harmonic_major", "scale_class": "harmonic_major", "root": "e" },
-                            { "id": "e_harmonic_minor", "scale_class": "harmonic_minor", "root": "e" },
-                            { "id": "f_acoustic", "scale_class": "acoustic", "root": "f" },
-                            { "id": "f_diatonic", "scale_class": "diatonic", "root": "f" },
-                            { "id": "f_harmonic_major", "scale_class": "harmonic_major", "root": "f" },
-                            { "id": "f_harmonic_minor", "scale_class": "harmonic_minor", "root": "f" },
-                            { "id": "fs_acoustic", "scale_class": "acoustic", "root": "fs" },
-                            { "id": "fs_diatonic", "scale_class": "diatonic", "root": "fs" },
-                            { "id": "fs_harmonic_major", "scale_class": "harmonic_major", "root": "fs" },
-                            { "id": "fs_harmonic_minor", "scale_class": "harmonic_minor", "root": "fs" },
-                            { "id": "g_acoustic", "scale_class": "acoustic", "root": "g" },
-                            { "id": "g_diatonic", "scale_class": "diatonic", "root": "g" },
-                            { "id": "g_harmonic_major", "scale_class": "harmonic_major", "root": "g" },
-                            { "id": "g_harmonic_minor", "scale_class": "harmonic_minor", "root": "g" },
-                            { "id": "gs_acoustic", "scale_class": "acoustic", "root": "gs" },
-                            { "id": "gs_diatonic", "scale_class": "diatonic", "root": "gs" },
-                            { "id": "gs_harmonic_major", "scale_class": "harmonic_major", "root": "gs" },
-                            { "id": "gs_harmonic_minor", "scale_class": "harmonic_minor", "root": "gs" },
-                            { "id": "octatonic_1", "scale_class": "octatonic", "root": "octatonic_1" },
-                            { "id": "octatonic_2", "scale_class": "octatonic", "root": "octatonic_2" },
-                            { "id": "octatonic_3", "scale_class": "octatonic", "root": "octatonic_3" },
-                            { "id": "hexatonic_1", "scale_class": "hexatonic", "root": "hexatonic_1" },
-                            { "id": "hexatonic_2", "scale_class": "hexatonic", "root": "hexatonic_2" },
-                            { "id": "hexatonic_3", "scale_class": "hexatonic", "root": "hexatonic_3" },
-                            { "id": "hexatonic_4", "scale_class": "hexatonic", "root": "hexatonic_4" },
-                            { "id": "whole_tone_1", "scale_class": "whole_tone", "root": "whole_tone_1" },
-                            { "id": "whole_tone_2", "scale_class": "whole_tone", "root": "whole_tone_2" }
-                         ],
-                         "links": [
-                            { "source": "a_acoustic", "target": "d_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "a_acoustic", "target": "e_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "a_acoustic", "target": "b_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_acoustic", "target": "e_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_acoustic", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "a_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "a_diatonic", "target": "d_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "a_diatonic", "target": "e_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "a_diatonic", "target": "d_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "a_diatonic", "target": "e_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "a_diatonic", "target": "a_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_diatonic", "target": "fs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_harmonic_major", "target": "a_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_harmonic_major", "target": "g_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "a_harmonic_major", "target": "fs_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "a_harmonic_major", "target": "a_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "a_harmonic_major", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "a_harmonic_major", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "a_harmonic_minor", "target": "c_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "a_harmonic_minor", "target": "d_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "a_harmonic_minor", "target": "c_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "a_harmonic_minor", "target": "a_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "a_harmonic_minor", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "a_harmonic_minor", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "as_acoustic", "target": "ds_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "as_acoustic", "target": "f_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "as_acoustic", "target": "c_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_acoustic", "target": "f_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_acoustic", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "as_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "as_diatonic", "target": "ds_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "as_diatonic", "target": "f_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "as_diatonic", "target": "ds_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "as_diatonic", "target": "f_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "as_diatonic", "target": "as_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_diatonic", "target": "g_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_harmonic_major", "target": "as_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_harmonic_major", "target": "gs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "as_harmonic_major", "target": "g_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "as_harmonic_major", "target": "as_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "as_harmonic_major", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "as_harmonic_major", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "as_harmonic_minor", "target": "cs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "as_harmonic_minor", "target": "ds_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "as_harmonic_minor", "target": "cs_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "as_harmonic_minor", "target": "as_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "as_harmonic_minor", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "as_harmonic_minor", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "b_acoustic", "target": "e_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "b_acoustic", "target": "fs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "b_acoustic", "target": "cs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_acoustic", "target": "fs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_acoustic", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "b_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "b_diatonic", "target": "e_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "b_diatonic", "target": "fs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "b_diatonic", "target": "e_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "b_diatonic", "target": "fs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "b_diatonic", "target": "b_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_diatonic", "target": "gs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_harmonic_major", "target": "b_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_harmonic_major", "target": "a_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "b_harmonic_major", "target": "gs_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "b_harmonic_major", "target": "b_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "b_harmonic_major", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "b_harmonic_major", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "b_harmonic_minor", "target": "d_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "b_harmonic_minor", "target": "e_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "b_harmonic_minor", "target": "d_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "b_harmonic_minor", "target": "b_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "b_harmonic_minor", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "b_harmonic_minor", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "c_acoustic", "target": "f_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "c_acoustic", "target": "g_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "c_acoustic", "target": "d_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_acoustic", "target": "g_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_acoustic", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "c_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "c_diatonic", "target": "f_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "c_diatonic", "target": "g_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "c_diatonic", "target": "f_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "c_diatonic", "target": "g_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "c_diatonic", "target": "c_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_diatonic", "target": "a_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_harmonic_major", "target": "c_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_harmonic_major", "target": "as_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "c_harmonic_major", "target": "c_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "c_harmonic_major", "target": "a_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "c_harmonic_major", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "c_harmonic_major", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "c_harmonic_minor", "target": "ds_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "c_harmonic_minor", "target": "f_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "c_harmonic_minor", "target": "c_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "c_harmonic_minor", "target": "ds_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "c_harmonic_minor", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "c_harmonic_minor", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "cs_acoustic", "target": "fs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "cs_acoustic", "target": "gs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "cs_acoustic", "target": "ds_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_acoustic", "target": "gs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_acoustic", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "cs_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "cs_diatonic", "target": "fs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "cs_diatonic", "target": "gs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "cs_diatonic", "target": "fs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "cs_diatonic", "target": "gs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "cs_diatonic", "target": "cs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_diatonic", "target": "as_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_harmonic_major", "target": "cs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_harmonic_major", "target": "b_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "cs_harmonic_major", "target": "cs_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "cs_harmonic_major", "target": "as_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "cs_harmonic_major", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "cs_harmonic_major", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "cs_harmonic_minor", "target": "e_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "cs_harmonic_minor", "target": "fs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "cs_harmonic_minor", "target": "cs_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "cs_harmonic_minor", "target": "e_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "cs_harmonic_minor", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "cs_harmonic_minor", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "d_acoustic", "target": "g_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "d_acoustic", "target": "a_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "d_acoustic", "target": "e_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_acoustic", "target": "a_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_acoustic", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "d_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "d_diatonic", "target": "g_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "d_diatonic", "target": "a_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "d_diatonic", "target": "g_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "d_diatonic", "target": "a_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "d_diatonic", "target": "d_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_diatonic", "target": "b_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_harmonic_major", "target": "d_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_harmonic_major", "target": "c_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "d_harmonic_major", "target": "d_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "d_harmonic_major", "target": "b_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "d_harmonic_major", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "d_harmonic_major", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "d_harmonic_minor", "target": "f_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "d_harmonic_minor", "target": "g_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "d_harmonic_minor", "target": "d_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "d_harmonic_minor", "target": "f_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "d_harmonic_minor", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "d_harmonic_minor", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "ds_acoustic", "target": "gs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "ds_acoustic", "target": "as_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "ds_acoustic", "target": "f_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_acoustic", "target": "as_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_acoustic", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "ds_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "ds_diatonic", "target": "gs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "ds_diatonic", "target": "as_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "ds_diatonic", "target": "gs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "ds_diatonic", "target": "as_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "ds_diatonic", "target": "ds_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_diatonic", "target": "c_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_harmonic_major", "target": "ds_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_harmonic_major", "target": "cs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "ds_harmonic_major", "target": "c_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "ds_harmonic_major", "target": "ds_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "ds_harmonic_major", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "ds_harmonic_major", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "ds_harmonic_minor", "target": "fs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "ds_harmonic_minor", "target": "gs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "ds_harmonic_minor", "target": "ds_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "ds_harmonic_minor", "target": "fs_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "ds_harmonic_minor", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "ds_harmonic_minor", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "e_acoustic", "target": "a_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_acoustic", "target": "b_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_acoustic", "target": "fs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_acoustic", "target": "b_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_acoustic", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "e_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "e_diatonic", "target": "a_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "e_diatonic", "target": "b_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "e_diatonic", "target": "a_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "e_diatonic", "target": "b_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "e_diatonic", "target": "e_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_diatonic", "target": "cs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_harmonic_major", "target": "e_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_harmonic_major", "target": "d_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "e_harmonic_major", "target": "cs_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "e_harmonic_major", "target": "e_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "e_harmonic_major", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "e_harmonic_major", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "e_harmonic_minor", "target": "g_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "e_harmonic_minor", "target": "a_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "e_harmonic_minor", "target": "e_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "e_harmonic_minor", "target": "g_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "e_harmonic_minor", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "e_harmonic_minor", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "f_acoustic", "target": "c_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_acoustic", "target": "as_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_acoustic", "target": "g_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_acoustic", "target": "c_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_acoustic", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "f_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "f_diatonic", "target": "c_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "f_diatonic", "target": "as_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "f_diatonic", "target": "c_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "f_diatonic", "target": "as_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "f_diatonic", "target": "f_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_diatonic", "target": "d_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_harmonic_major", "target": "f_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_harmonic_major", "target": "ds_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "f_harmonic_major", "target": "d_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "f_harmonic_major", "target": "f_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "f_harmonic_major", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "f_harmonic_major", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "f_harmonic_minor", "target": "gs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "f_harmonic_minor", "target": "as_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "f_harmonic_minor", "target": "f_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "f_harmonic_minor", "target": "gs_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "f_harmonic_minor", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "f_harmonic_minor", "target": "hexatonic_1", "edge_group": "hex_harmonic_edge" },
-                            { "source": "fs_acoustic", "target": "cs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "fs_acoustic", "target": "b_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "fs_acoustic", "target": "gs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_acoustic", "target": "cs_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_acoustic", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "fs_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "fs_diatonic", "target": "cs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "fs_diatonic", "target": "b_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "fs_diatonic", "target": "cs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "fs_diatonic", "target": "b_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "fs_diatonic", "target": "fs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_diatonic", "target": "ds_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_harmonic_major", "target": "fs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_harmonic_major", "target": "e_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "fs_harmonic_major", "target": "ds_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "fs_harmonic_major", "target": "fs_harmonic_minor", "edge_group": "harmonic_edge_2" },
-                            { "source": "fs_harmonic_major", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "fs_harmonic_major", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "fs_harmonic_minor", "target": "a_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_harmonic_minor", "target": "b_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "fs_harmonic_minor", "target": "fs_harmonic_major", "edge_group": "harmonic_edge_2" },
-                            { "source": "fs_harmonic_minor", "target": "a_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "fs_harmonic_minor", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "fs_harmonic_minor", "target": "hexatonic_2", "edge_group": "hex_harmonic_edge" },
-                            { "source": "g_acoustic", "target": "c_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "g_acoustic", "target": "d_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "g_acoustic", "target": "a_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_acoustic", "target": "d_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_acoustic", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "g_acoustic", "target": "whole_tone_2", "edge_group": "wt_acoustic_edge" },
-                            { "source": "g_diatonic", "target": "c_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "g_diatonic", "target": "d_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "g_diatonic", "target": "c_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "g_diatonic", "target": "d_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "g_diatonic", "target": "g_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_diatonic", "target": "e_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_harmonic_major", "target": "g_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_harmonic_major", "target": "f_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "g_harmonic_major", "target": "e_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "g_harmonic_major", "target": "g_harmonic_minor", "edge_group": "harmonic_edge_1" },
-                            { "source": "g_harmonic_major", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "g_harmonic_major", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "g_harmonic_minor", "target": "as_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "g_harmonic_minor", "target": "c_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "g_harmonic_minor", "target": "g_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "g_harmonic_minor", "target": "as_harmonic_major", "edge_group": "harmonic_edge_1" },
-                            { "source": "g_harmonic_minor", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "g_harmonic_minor", "target": "hexatonic_3", "edge_group": "hex_harmonic_edge" },
-                            { "source": "gs_acoustic", "target": "cs_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "gs_acoustic", "target": "ds_diatonic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "gs_acoustic", "target": "as_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_acoustic", "target": "ds_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_acoustic", "target": "octatonic_3", "edge_group": "oct_edge" },
-                            { "source": "gs_acoustic", "target": "whole_tone_1", "edge_group": "wt_acoustic_edge" },
-                            { "source": "gs_diatonic", "target": "cs_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "gs_diatonic", "target": "ds_diatonic", "edge_group": "diatonic_edge" },
-                            { "source": "gs_diatonic", "target": "cs_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "gs_diatonic", "target": "ds_acoustic", "edge_group": "acoustic_diatonic_edge" },
-                            { "source": "gs_diatonic", "target": "gs_harmonic_major", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_diatonic", "target": "f_harmonic_minor", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_harmonic_major", "target": "gs_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_harmonic_major", "target": "fs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "gs_harmonic_major", "target": "f_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "gs_harmonic_major", "target": "gs_harmonic_minor", "edge_group": "harmonic_edge_3" },
-                            { "source": "gs_harmonic_major", "target": "octatonic_1", "edge_group": "oct_edge" },
-                            { "source": "gs_harmonic_major", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "gs_harmonic_minor", "target": "b_diatonic", "edge_group": "diatonic_harmonic_edge" },
-                            { "source": "gs_harmonic_minor", "target": "cs_acoustic", "edge_group": "acoustic_harmonic_edge" },
-                            { "source": "gs_harmonic_minor", "target": "gs_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "gs_harmonic_minor", "target": "b_harmonic_major", "edge_group": "harmonic_edge_3" },
-                            { "source": "gs_harmonic_minor", "target": "octatonic_2", "edge_group": "oct_edge" },
-                            { "source": "gs_harmonic_minor", "target": "hexatonic_4", "edge_group": "hex_harmonic_edge" },
-                            { "source": "octatonic_1", "target": "c_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "ds_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "fs_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "a_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "d_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "f_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "gs_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "b_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "cs_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "e_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "g_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_1", "target": "as_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "cs_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "e_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "g_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "as_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "c_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "ds_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "fs_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "a_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "d_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "f_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "gs_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_2", "target": "b_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "d_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "f_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "gs_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "b_acoustic", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "cs_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "e_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "g_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "as_harmonic_major", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "c_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "ds_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "fs_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "octatonic_3", "target": "a_harmonic_minor", "edge_group": "oct_edge" },
-                            { "source": "hexatonic_1", "target": "cs_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_1", "target": "f_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_1", "target": "a_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_1", "target": "cs_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_1", "target": "f_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_1", "target": "a_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "d_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "fs_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "as_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "d_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "fs_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_2", "target": "as_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "ds_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "g_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "b_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "ds_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "g_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_3", "target": "b_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "c_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "e_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "gs_harmonic_major", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "c_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "e_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "hexatonic_4", "target": "gs_harmonic_minor", "edge_group": "hex_harmonic_edge" },
-                            { "source": "whole_tone_1", "target": "c_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_1", "target": "d_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_1", "target": "e_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_1", "target": "fs_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_1", "target": "gs_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_1", "target": "as_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "cs_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "ds_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "f_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "g_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "a_acoustic", "edge_group": "wt_acoustic_edge" },
-                            { "source": "whole_tone_2", "target": "b_acoustic", "edge_group": "wt_acoustic_edge" }
-                         ]
+                            "nodes": [{
+                                "id": "a_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "a"
+                            }, {
+                                "id": "a_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "a"
+                            }, {
+                                "id": "a_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "a"
+                            }, {
+                                "id": "a_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "a"
+                            }, {
+                                "id": "as_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "as"
+                            }, {
+                                "id": "as_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "as"
+                            }, {
+                                "id": "as_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "as"
+                            }, {
+                                "id": "as_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "as"
+                            }, {
+                                "id": "b_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "b"
+                            }, {
+                                "id": "b_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "b"
+                            }, {
+                                "id": "b_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "b"
+                            }, {
+                                "id": "b_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "b"
+                            }, {
+                                "id": "c_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "c"
+                            }, {
+                                "id": "c_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "c"
+                            }, {
+                                "id": "c_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "c"
+                            }, {
+                                "id": "c_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "c"
+                            }, {
+                                "id": "cs_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "cs"
+                            }, {
+                                "id": "cs_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "cs"
+                            }, {
+                                "id": "cs_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "cs"
+                            }, {
+                                "id": "cs_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "cs"
+                            }, {
+                                "id": "d_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "d"
+                            }, {
+                                "id": "d_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "d"
+                            }, {
+                                "id": "d_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "d"
+                            }, {
+                                "id": "d_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "d"
+                            }, {
+                                "id": "ds_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "ds"
+                            }, {
+                                "id": "ds_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "ds"
+                            }, {
+                                "id": "ds_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "ds"
+                            }, {
+                                "id": "ds_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "ds"
+                            }, {
+                                "id": "e_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "e"
+                            }, {
+                                "id": "e_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "e"
+                            }, {
+                                "id": "e_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "e"
+                            }, {
+                                "id": "e_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "e"
+                            }, {
+                                "id": "f_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "f"
+                            }, {
+                                "id": "f_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "f"
+                            }, {
+                                "id": "f_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "f"
+                            }, {
+                                "id": "f_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "f"
+                            }, {
+                                "id": "fs_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "fs"
+                            }, {
+                                "id": "fs_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "fs"
+                            }, {
+                                "id": "fs_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "fs"
+                            }, {
+                                "id": "fs_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "fs"
+                            }, {
+                                "id": "g_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "g"
+                            }, {
+                                "id": "g_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "g"
+                            }, {
+                                "id": "g_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "g"
+                            }, {
+                                "id": "g_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "g"
+                            }, {
+                                "id": "gs_acoustic",
+                                "scale_class": "acoustic",
+                                "root": "gs"
+                            }, {
+                                "id": "gs_diatonic",
+                                "scale_class": "diatonic",
+                                "root": "gs"
+                            }, {
+                                "id": "gs_harmonic_major",
+                                "scale_class": "harmonic_major",
+                                "root": "gs"
+                            }, {
+                                "id": "gs_harmonic_minor",
+                                "scale_class": "harmonic_minor",
+                                "root": "gs"
+                            }, {
+                                "id": "octatonic_1",
+                                "scale_class": "octatonic",
+                                "root": "octatonic_1"
+                            }, {
+                                "id": "octatonic_2",
+                                "scale_class": "octatonic",
+                                "root": "octatonic_2"
+                            }, {
+                                "id": "octatonic_3",
+                                "scale_class": "octatonic",
+                                "root": "octatonic_3"
+                            }, {
+                                "id": "hexatonic_1",
+                                "scale_class": "hexatonic",
+                                "root": "hexatonic_1"
+                            }, {
+                                "id": "hexatonic_2",
+                                "scale_class": "hexatonic",
+                                "root": "hexatonic_2"
+                            }, {
+                                "id": "hexatonic_3",
+                                "scale_class": "hexatonic",
+                                "root": "hexatonic_3"
+                            }, {
+                                "id": "hexatonic_4",
+                                "scale_class": "hexatonic",
+                                "root": "hexatonic_4"
+                            }, {
+                                "id": "whole_tone_1",
+                                "scale_class": "whole_tone",
+                                "root": "whole_tone_1"
+                            }, {
+                                "id": "whole_tone_2",
+                                "scale_class": "whole_tone",
+                                "root": "whole_tone_2"
+                            }],
+                            "links": [{
+                                "source": "a_acoustic",
+                                "target": "d_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "a_acoustic",
+                                "target": "e_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "a_acoustic",
+                                "target": "b_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_acoustic",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_acoustic",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "a_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "d_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "e_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "d_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "e_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "a_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_diatonic",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "a_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "g_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "a_harmonic_major",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "c_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "d_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "c_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "a_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "a_harmonic_minor",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "ds_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "f_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "c_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "as_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "ds_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "f_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "ds_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "f_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "as_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_diatonic",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "as_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "gs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "as_harmonic_major",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "cs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "ds_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "as_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "as_harmonic_minor",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "e_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "fs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "b_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "e_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "fs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "e_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "fs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "b_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_diatonic",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "b_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "a_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "b_harmonic_major",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "d_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "e_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "d_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "b_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "b_harmonic_minor",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "f_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "g_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "d_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "c_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "f_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "g_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "f_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "g_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "c_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_diatonic",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "c_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "as_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "c_harmonic_major",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "ds_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "f_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "c_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "c_harmonic_minor",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "fs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "gs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "cs_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "fs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "gs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "fs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "gs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_diatonic",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "cs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "b_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "cs_harmonic_major",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "e_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "fs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "e_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "cs_harmonic_minor",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "g_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "a_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "e_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "d_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "g_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "a_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "g_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "a_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "d_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_diatonic",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "d_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "c_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "d_harmonic_major",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "f_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "g_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "d_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "f_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "d_harmonic_minor",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "gs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "as_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "f_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "ds_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "gs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "as_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "gs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "as_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_diatonic",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "ds_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "cs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "ds_harmonic_major",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "fs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "gs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "ds_harmonic_minor",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "a_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "b_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "e_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "a_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "b_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "a_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "b_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "e_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_diatonic",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "e_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "d_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "e_harmonic_major",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "g_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "a_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "e_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "g_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "e_harmonic_minor",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "c_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "as_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "g_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "f_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "c_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "as_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "c_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "as_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "f_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_diatonic",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "f_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "ds_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "f_harmonic_major",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "gs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "as_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "f_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "f_harmonic_minor",
+                                "target": "hexatonic_1",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "cs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "b_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "fs_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "cs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "b_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "cs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "b_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_diatonic",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "fs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "e_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "fs_harmonic_major",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "a_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "b_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "harmonic_edge_2"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "a_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "fs_harmonic_minor",
+                                "target": "hexatonic_2",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "c_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "d_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "a_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "g_acoustic",
+                                "target": "whole_tone_2",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "c_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "d_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "c_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "d_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "g_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_diatonic",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "g_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "f_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "g_harmonic_major",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "as_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "c_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "g_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "as_harmonic_major",
+                                "edge_group": "harmonic_edge_1"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "g_harmonic_minor",
+                                "target": "hexatonic_3",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "cs_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "ds_diatonic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "as_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "octatonic_3",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "gs_acoustic",
+                                "target": "whole_tone_1",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "cs_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "ds_diatonic",
+                                "edge_group": "diatonic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "cs_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "ds_acoustic",
+                                "edge_group": "acoustic_diatonic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_diatonic",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "gs_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "fs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "octatonic_1",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "gs_harmonic_major",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "b_diatonic",
+                                "edge_group": "diatonic_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "cs_acoustic",
+                                "edge_group": "acoustic_harmonic_edge"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "b_harmonic_major",
+                                "edge_group": "harmonic_edge_3"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "octatonic_2",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "gs_harmonic_minor",
+                                "target": "hexatonic_4",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "c_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "ds_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "fs_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "a_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "d_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "f_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "b_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_1",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "cs_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "e_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "g_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "as_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "c_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "a_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_2",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "d_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "f_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "gs_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "b_acoustic",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "e_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "g_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "as_harmonic_major",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "octatonic_3",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "oct_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "cs_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "f_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "a_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "cs_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "f_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_1",
+                                "target": "a_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "d_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "fs_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "as_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "d_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "fs_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_2",
+                                "target": "as_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "ds_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "g_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "b_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "ds_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "g_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_3",
+                                "target": "b_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "c_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "e_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "gs_harmonic_major",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "c_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "e_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "hexatonic_4",
+                                "target": "gs_harmonic_minor",
+                                "edge_group": "hex_harmonic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "c_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "d_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "e_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "fs_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "gs_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_1",
+                                "target": "as_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "cs_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "ds_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "f_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "g_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "a_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }, {
+                                "source": "whole_tone_2",
+                                "target": "b_acoustic",
+                                "edge_group": "wt_acoustic_edge"
+                            }]
                         };
-                        
+
                         const rootColors = {
-                         'a': '#d9ccfb',
-                         'as': '#f8ca92',
-                         'b': '#c0eafd',
-                         'c': '#fbe7e6',
-                         'cs': '#b9fcbb',
-                         'd': '#f4d5fc',
-                         'ds': '#f8fda0',
-                         'e': '#c1cdfb',
-                         'f': '#f08784',
-                         'fs': '#bffdea',
-                         'g': '#f9deee',
-                         'gs': '#cefca6',
-                         'octatonic_1': "#c8c8c8",
-                         'octatonic_2': "#a7a7a7",
-                         'octatonic_3': "#858585",
-                         'hexatonic_1': "#a7a7a7",
-                         'hexatonic_2': "#858585",
-                         'hexatonic_3': "#646464",
-                         'hexatonic_4': "#c8c8c8",
-                         'whole_tone_1': "#c8c8c8",
-                         'whole_tone_2': "#969696"
+                            'a': '#d9ccfb',
+                            'as': '#f8ca92',
+                            'b': '#c0eafd',
+                            'c': '#fbe7e6',
+                            'cs': '#b9fcbb',
+                            'd': '#f4d5fc',
+                            'ds': '#f8fda0',
+                            'e': '#c1cdfb',
+                            'f': '#f08784',
+                            'fs': '#bffdea',
+                            'g': '#f9deee',
+                            'gs': '#cefca6',
+                            'octatonic_1': "#c8c8c8",
+                            'octatonic_2': "#a7a7a7",
+                            'octatonic_3': "#858585",
+                            'hexatonic_1': "#a7a7a7",
+                            'hexatonic_2': "#858585",
+                            'hexatonic_3': "#646464",
+                            'hexatonic_4': "#c8c8c8",
+                            'whole_tone_1': "#c8c8c8",
+                            'whole_tone_2': "#969696"
                         };
-                        
+
                         // cross-link node objects
                         // gData.links.forEach(link => {
-                        
+
                         //   const a = gData.nodes[link.source];
                         //   const b = gData.nodes[link.target];
                         //   !a.neighbors && (a.neighbors = []);
                         //   !b.neighbors && (b.neighbors = []);
                         //   a.neighbors.push(b);
                         //   b.neighbors.push(a);
-                        
+
                         //   !a.links && (a.links = []);
                         //   !b.links && (b.links = []);
                         //   a.links.push(link);
                         //   b.links.push(link);
                         // });
-                        
+
                         const highlightNodes = new Set();
                         const highlightLinks = new Set();
                         let hoverNode = null;
                         let selectedId = null;
-                        
+
                         const graph = ForceGraph3D()(document.getElementById("3d-graph"))
-                        
-                         .nodeThreeObject(({ scale_class, root }) => {
-                            const scale_classTexture = new THREE.TextureLoader().load(`./scale_classes/${scale_class+".svg"}`);
-                            const material = new THREE.SpriteMaterial({ map: scale_classTexture, color: rootColors[root] });
-                            const sprite = new THREE.Sprite(material);
-                            sprite.scale.set(20, 20);
-                        
-                            return sprite;
-                         })
-                         // .nodeVal(selectedLinkSize)
-                         // .linkWidth(link => highlightLinks.has(link) ? 4 : 1)
-                         .onNodeClick(node => {
-                            // Aim at node from outside it
+
+                        .nodeThreeObject(({
+                                scale_class,
+                                root
+                            }) => {
+                                const scale_classTexture = new THREE.TextureLoader().load(`./scale_classes/${scale_class+".svg"}`);
+                                const material = new THREE.SpriteMaterial({
+                                    map: scale_classTexture,
+                                    color: rootColors[root]
+                                });
+                                const sprite = new THREE.Sprite(material);
+                                sprite.scale.set(20, 20);
+
+                                return sprite;
+                            })
+                            // .nodeVal(selectedLinkSize)
+                            // .linkWidth(link => highlightLinks.has(link) ? 4 : 1)
+                            .onNodeClick(node => {
+                                // Aim at node from outside it
+                                const distance = 200;
+                                const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+
+                                graph.cameraPosition({
+                                        x: node.x * distRatio,
+                                        y: node.y * distRatio,
+                                        z: node.z * distRatio
+                                    }, // new position
+                                    node, // lookAt ({ x, y, z })
+                                    8000 // ms transition duration
+                                );
+                            })
+                            .nodeLabel('id')
+                            .backgroundColor('#00ff0000')
+                            .graphData(gData)
+                            .linkColor(() => "#000000")
+                            .linkOpacity(0.5);
+
+
+                        function updateHighlight() {
+                            // trigger update of highlighted objects in scene
+                            graph.linkWidth(Graph.linkWidth());
+
+                        }
+
+                        function resizeGraph() {
+                            if (graph) {
+
+
+                                graph.width($("#graph_container").width());
+                                graph.height($("#graph_container").height());
+                                graph.controls().handleResize();
+                            }
+                        }
+
+                        function selectedLinkSize(node) {
+                            if (`${node.id}` === `${selectedId}`) {
+                                // no state change
+
+                                highlightNodes.clear();
+                                highlightLinks.clear();
+                                if (node) {
+                                    highlightNodes.add(node);
+                                    node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
+                                    node.links.forEach(link => highlightLinks.add(link));
+                                }
+                                updateHighlight();
+                            }
+                        }
+
+                        function selectExternally(id) {
+                            //console.log({ id });
+                            selectedId = id;
+                            // graph?.refresh();
+
+                            focusNode();
+                        }
+
+                        function focusNode() {
+                            let node = gData.nodes.find(d => d.id == selectedId);
+                            if (!node) {
+                                return;
+                            }
                             const distance = 200;
                             const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-                        
-                            graph.cameraPosition({ x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-                               node, // lookAt ({ x, y, z })
-                               8000 // ms transition duration
+
+                            graph.cameraPosition({
+                                    x: node.x * distRatio,
+                                    y: node.y * distRatio,
+                                    z: node.z * distRatio
+                                }, // new position
+                                node, // lookAt ({ x, y, z })
+                                8000 // ms transition duration
                             );
-                         })
-                         .nodeLabel('id')
-                         .backgroundColor('#00ff0000')
-                         .graphData(gData)
-                         .linkColor(() => "#000000")
-                         .linkOpacity(0.5);
+                        }
 
-                        
-                        function updateHighlight() {
-                         // trigger update of highlighted objects in scene
-                         graph.linkWidth(Graph.linkWidth());
-                        
-                        }
-                        
-                        function resizeGraph() {
-                         if (graph) {
-
-                        
-                            graph.width($("#graph_container").width());
-                            graph.height($("#graph_container").height());
-                            graph.controls().handleResize();
-                         }
-                        }
-                        
-                        function selectedLinkSize(node) {
-                         if (`${node.id}` === `${selectedId}`) {
-                            // no state change
-                        
-                            highlightNodes.clear();
-                            highlightLinks.clear();
-                            if (node) {
-                               highlightNodes.add(node);
-                               node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
-                               node.links.forEach(link => highlightLinks.add(link));
-                            }
-                            updateHighlight();
-                         }
-                        }
-                        
-                        function selectExternally(id) {
-                         //console.log({ id });
-                         selectedId = id;
-                         // graph?.refresh();
-                        
-                         focusNode();
-                        }
-                        
-                        function focusNode() {
-                         let node = gData.nodes.find(d => d.id == selectedId);
-                         if (!node) {
-                            return;
-                         }
-                         const distance = 200;
-                         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-                        
-                         graph.cameraPosition({ x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-                            node, // lookAt ({ x, y, z })
-                            8000 // ms transition duration
-                         );
-                        }
-                        
                         function toPercentage(rawValue) {
-                         var value = rawValue || 0;
-                         var percent = value / 100;
-                         return Math.max(0, Math.min(100, percent));
+                            var value = rawValue || 0;
+                            var percent = value / 100;
+                            return Math.max(0, Math.min(100, percent));
                         }
 
 
-                        
-                        $('body').on('DOMSubtreeModified', '#send_to_firebase', function() {
-                         selectExternally(document.getElementById("send_to_firebase").textContent);
-                        });
-                     </script>
-                  </div>
-               </div>
-               <div id="Account" class="tabcontent">
-                  <h3>account info?</h3>
-               </div>
-               <div id="About" class="tabcontent">
-                  <ul>
-                     <li><a href="https://mtiid.calarts.edu/wp-content/uploads/2020/03/Turczan_MFA_Thesis.pdf">The Scale Navigator: A Synesthetic Interface for Manipulating Harmony
-in Composition, Performance and Installation</a></li>
-                     <li><a href="https://dmitri.mycpanel.princeton.edu/files/publications/debussy.pdf">Scale Networks and Debussy</a></li>
-                     <li><a href="https://music.arts.uci.edu/abauer/3.1/notes/Chord-Scale_Networks.pdf">Chord-Scale Networks in the Music and Improvisations of Wayne Shorter</a></li>
-                  </ul>
-               </div>
 
+                        $('body').on('DOMSubtreeModified', '#send_to_firebase', function() {
+                            selectExternally(document.getElementById("send_to_firebase").textContent);
+                        });
+                    </script>
+                </div>
             </div>
-         </div>
-         <div id="hidden">
-            <p id="send_to_firebase" style="visibility: hidden;"></p>
-            <p id="scale_from_firebase" style="visibility: hidden;"></p>
-         </div>
-      </html>
-      <!-- onboarding script -->
-      <script>
-         introJs().start();
-      </script>
-   </body>
+            <div id="Account" class="tabcontent">
+                <h3>account info?</h3>
+            </div>
+            <div id="About" class="tabcontent">
+                <ul>
+                    <li><a href="https://mtiid.calarts.edu/wp-content/uploads/2020/03/Turczan_MFA_Thesis.pdf">The Scale Navigator: A Synesthetic Interface for Manipulating Harmony
+in Composition, Performance and Installation</a></li>
+                    <li><a href="https://dmitri.mycpanel.princeton.edu/files/publications/debussy.pdf">Scale Networks and Debussy</a></li>
+                    <li><a href="https://music.arts.uci.edu/abauer/3.1/notes/Chord-Scale_Networks.pdf">Chord-Scale Networks in the Music and Improvisations of Wayne Shorter</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="hidden">
+        <p id="send_to_firebase" style="visibility: hidden;"></p>
+        <p id="scale_from_firebase" style="visibility: hidden;"></p>
+    </div>
+
+    </html>
+    <!-- onboarding script -->
+    <script>
+        introJs().start();
+    </script>
+</body>
+
 </html>
